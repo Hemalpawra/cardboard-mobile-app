@@ -1,3 +1,9 @@
 @import './fonts.css';
 @import './tailwind.css';
 @import './theme.css';
+
+/* Global rule to remove top status bar from all app screens */
+[data-name="Status Bar"] {
+  display: none !important;
+}
+
