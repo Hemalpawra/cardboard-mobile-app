@@ -2,8 +2,9 @@
 @import './tailwind.css';
 @import './theme.css';
 
-/* Global rule to remove top status bar from all app screens */
-[data-name="Status Bar"] {
+/* Global rules to remove top status bar and bottom iPhone indicator from all app screens */
+[data-name="Status Bar"],
+[data-name="Iphone Indicator"] {
   display: none !important;
 }
 

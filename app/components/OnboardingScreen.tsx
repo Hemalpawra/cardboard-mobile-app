@@ -143,7 +143,7 @@ export function OnboardingScreen({ onComplete, onSkip }: Props) {
         </div>
 
         {/* iPhone home indicator */}
-        <div className="h-[30px] relative shrink-0 w-full">
+        <div className="h-[30px] relative shrink-0 w-full" data-name="Iphone Indicator">
           <div className="absolute bg-[#32323a] bottom-[8px] h-[5px] left-1/2 -translate-x-1/2 rounded-[100px] w-[135px]" />
         </div>
       </div>
