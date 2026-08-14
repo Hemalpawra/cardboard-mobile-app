@@ -1,0 +1,144 @@
+import { useState, useRef, useEffect } from "react";
+import { motion } from "motion/react";
+import { StatusBar } from "./StatusBar";
+
+const BACK_ARROW = "M4.78125 9.75L11.7813 15.8167L10 17.3333L0 8.66667L10 0L11.7813 1.51667L4.78125 7.58333H20V9.75H4.78125Z";
+
+interface Props {
+  onBack: () => void;
+  onVerified: () => void;
+  email?: string;
+}
+
+export function VerifyCodeScreen({ onBack, onVerified, email = "john@gmail.com" }: Props) {
+  const [code, setCode] = useState("");
+  const [timer, setTimer] = useState(28);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const t = setTimeout(() => inputRef.current?.focus(), 300);
+    return () => clearTimeout(t);
+  }, []);
+
+  useEffect(() => {
+    if (timer <= 0) return;
+    const t = setTimeout(() => setTimer((s) => s - 1), 1000);
+    return () => clearTimeout(t);
+  }, [timer]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value.replace(/\D/g, "").slice(0, 6);
+    setCode(val);
+  };
+
+  const isComplete = code.length === 6;
+  const timerStr = `00:${timer.toString().padStart(2, "0")}`;
+
+  return (
+    <motion.div
+      className="absolute inset-0 bg-[#0d0d0f] flex flex-col"
+      initial={{ opacity: 0, x: 32 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -32 }}
+      transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+    >
+      <StatusBar />
+
+      <input
+        ref={inputRef}
+        type="tel"
+        inputMode="numeric"
+        value={code}
+        onChange={handleChange}
+        className="absolute opacity-0 pointer-events-none"
+        style={{ top: "-999px" }}
+        maxLength={6}
+        autoComplete="one-time-code"
+      />
+
+      <div className="flex flex-col flex-1 min-h-0 px-[24px] pt-[6px] pb-[24px] gap-[24px]">
+        <button
+          onClick={onBack}
+          className="self-start flex items-center justify-center w-[30px] h-[30px] active:opacity-60 transition-opacity"
+          aria-label="Go back"
+        >
+          <svg fill="none" height="17" viewBox="0 0 20 17.3333" width="20">
+            <path d={BACK_ARROW} fill="#858590" />
+          </svg>
+        </button>
+
+        <div className="flex flex-col gap-[24px] flex-1 min-h-0">
+          <div className="flex flex-col gap-[24px]">
+            <p
+              className="text-white m-0 leading-[44px]"
+              style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: 32 }}
+            >
+              Enter the code
+            </p>
+            <p
+              className="text-[#aeaeb5] m-0 leading-[30px]"
+              style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: 20 }}
+            >
+              We've sent a 6-digit code to {email}
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-[12px]">
+            <button
+              onClick={() => inputRef.current?.focus()}
+              className="flex gap-[8px] w-full"
+              aria-label="Enter verification code digits"
+            >
+              {Array.from({ length: 6 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="flex-1 h-[61px] rounded-[12px] border border-[#32323a] flex items-center justify-center"
+                  style={{ background: "rgba(163,163,168,0.05)" }}
+                >
+                  <span
+                    className="text-white"
+                    style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: 26 }}
+                  >
+                    {code[i] ?? ""}
+                  </span>
+                </div>
+              ))}
+            </button>
+
+            <div style={{ fontFamily: "Inter, sans-serif", fontSize: 16 }}>
+              {timer > 0 ? (
+                <span className="text-[#aeaeb5]">Resend code in {timerStr}</span>
+              ) : (
+                <button
+                  onClick={() => setTimer(28)}
+                  className="text-[#0088ff] active:opacity-70"
+                >
+                  Resend code
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+
+        <motion.button
+          whileTap={{ scale: 0.97 }}
+          transition={{ duration: 0.12 }}
+          onClick={isComplete ? onVerified : undefined}
+          className="w-full h-[54px] bg-white text-[#0d0d0f] rounded-[12px] flex items-center justify-center transition-opacity"
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontWeight: 500,
+            fontSize: 16,
+            opacity: isComplete ? 1 : 0.5,
+          }}
+        >
+          Continue
+        </motion.button>
+      </div>
+
+      <div className="h-[30px] relative shrink-0 w-full">
+        <div className="absolute bg-[#32323a] bottom-[8px] h-[5px] left-1/2 -translate-x-1/2 rounded-[100px] w-[135px]" />
+      </div>
+    </motion.div>
+  );
+}
