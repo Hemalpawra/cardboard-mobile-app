@@ -298,6 +298,7 @@ export function ProjectEditingScreen({ onBack, onExport, onNavigateVersionHistor
       <div className="shrink-0 bg-[#0d0d0f]">
         <AnimatePresence mode="wait">
           {activeTool === "flip" || activeTool === "trim" || activeTool === "crop" || activeTool === "speed" ? (
+            <motion.div
               key={`${activeTool}-toolbar`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
