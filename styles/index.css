@@ -14,4 +14,27 @@ div:has(> svg[viewBox*="85.3291"]) {
   display: none !important;
 }
 
+/* Hide all scrollbars globally while keeping scroll functionality */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* iOS momentum scrolling */
+.scroll-smooth-ios {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Hide the Figma import's baked-in bottom nav so only the React BottomNav renders */
+[data-name="Bottom Navigation"],
+[data-name="Menu List"],
+[data-name="bottom-nav"],
+[data-name="Bottom Nav"] {
+  display: none !important;
+}
+
 

@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "motion/react";
-import { StatusBar } from "./StatusBar";
 
 const BACK_ARROW = "M4.78125 9.75L11.7813 15.8167L10 17.3333L0 8.66667L10 0L11.7813 1.51667L4.78125 7.58333H20V9.75H4.78125Z";
 
@@ -42,8 +41,7 @@ export function VerifyCodeScreen({ onBack, onVerified, email = "john@gmail.com" 
       exit={{ opacity: 0, x: -32 }}
       transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
-      <StatusBar />
-
+      {/* Hidden numeric input — captures keyboard */}
       <input
         ref={inputRef}
         type="tel"
@@ -51,24 +49,27 @@ export function VerifyCodeScreen({ onBack, onVerified, email = "john@gmail.com" 
         value={code}
         onChange={handleChange}
         className="absolute opacity-0 pointer-events-none"
-        style={{ top: "-999px" }}
+        style={{ top: "-999px", left: 0 }}
         maxLength={6}
         autoComplete="one-time-code"
       />
 
-      <div className="flex flex-col flex-1 min-h-0 px-[24px] pt-[6px] pb-[24px] gap-[24px]">
-        <button
-          onClick={onBack}
-          className="self-start flex items-center justify-center w-[30px] h-[30px] active:opacity-60 transition-opacity"
-          aria-label="Go back"
-        >
-          <svg fill="none" height="17" viewBox="0 0 20 17.3333" width="20">
-            <path d={BACK_ARROW} fill="#858590" />
-          </svg>
-        </button>
+      {/* Scrollable content area — grows to push button above keyboard */}
+      <div className="flex flex-col flex-1 min-h-0 overflow-y-auto scroll-smooth-ios">
+        <div className="flex flex-col gap-[24px] px-[24px] pt-[6px] pb-[8px]">
+          {/* Back button */}
+          <button
+            onClick={onBack}
+            className="self-start flex items-center justify-center w-[36px] h-[36px] -ml-[6px] active:opacity-60 transition-opacity focus-visible:ring-2 focus-visible:ring-[#0088ff] rounded-full"
+            aria-label="Go back"
+          >
+            <svg fill="none" height="17" viewBox="0 0 20 17.3333" width="20">
+              <path d={BACK_ARROW} fill="#858590" />
+            </svg>
+          </button>
 
-        <div className="flex flex-col gap-[24px] flex-1 min-h-0">
-          <div className="flex flex-col gap-[24px]">
+          {/* Header */}
+          <div className="flex flex-col gap-[12px]">
             <p
               className="text-white m-0 leading-[44px]"
               style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: 32 }}
@@ -83,6 +84,7 @@ export function VerifyCodeScreen({ onBack, onVerified, email = "john@gmail.com" 
             </p>
           </div>
 
+          {/* OTP boxes — tappable to focus input */}
           <div className="flex flex-col gap-[12px]">
             <button
               onClick={() => inputRef.current?.focus()}
@@ -92,11 +94,14 @@ export function VerifyCodeScreen({ onBack, onVerified, email = "john@gmail.com" 
               {Array.from({ length: 6 }).map((_, i) => (
                 <div
                   key={i}
-                  className="flex-1 h-[61px] rounded-[12px] border border-[#32323a] flex items-center justify-center"
-                  style={{ background: "rgba(163,163,168,0.05)" }}
+                  className={`flex-1 h-[61px] rounded-[12px] border flex items-center justify-center transition-colors ${
+                    i === code.length && code.length < 6
+                      ? "border-[#0088ff] bg-[rgba(0,136,255,0.06)]"
+                      : "border-[#32323a] bg-[rgba(163,163,168,0.05)]"
+                  }`}
                 >
                   <span
-                    className="text-white"
+                    className="text-white tabular-nums"
                     style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: 26 }}
                   >
                     {code[i] ?? ""}
@@ -120,19 +125,30 @@ export function VerifyCodeScreen({ onBack, onVerified, email = "john@gmail.com" 
           </div>
         </div>
 
-        <motion.button
-          whileTap={{ scale: 0.96 }}
-          transition={{ duration: 0.12 }}
-          onClick={isComplete ? onVerified : undefined}
-          className="w-full h-[56px] bg-white text-[#0d0d0f] rounded-[12px] flex items-center justify-center transition-all focus-visible:ring-2 focus-visible:ring-[#0088ff] font-medium"
+        {/* Spacer that pushes button to bottom when no keyboard */}
+        <div className="flex-1" />
+
+        {/* Sticky Continue button — floats above virtual keyboard */}
+        <div
+          className="sticky bottom-0 px-[24px] pt-[16px] pb-[24px]"
           style={{
-            fontFamily: "Inter, sans-serif",
-            fontSize: 16,
-            opacity: isComplete ? 1 : 0.5,
+            background: "linear-gradient(to bottom, transparent, #0d0d0f 40%)",
           }}
         >
-          Continue
-        </motion.button>
+          <motion.button
+            whileTap={{ scale: 0.96 }}
+            transition={{ duration: 0.12 }}
+            onClick={isComplete ? onVerified : () => inputRef.current?.focus()}
+            className="w-full h-[56px] bg-white text-[#0d0d0f] rounded-[12px] flex items-center justify-center transition-all focus-visible:ring-2 focus-visible:ring-[#0088ff] font-medium"
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 16,
+              opacity: isComplete ? 1 : 0.5,
+            }}
+          >
+            Continue
+          </motion.button>
+        </div>
       </div>
     </motion.div>
   );

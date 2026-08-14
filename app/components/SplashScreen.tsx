@@ -5,13 +5,15 @@ import { StatusBar } from "./StatusBar";
 export function SplashScreen() {
   return (
     <motion.div
-      className="absolute inset-0 bg-[#0d0d0f] flex flex-col items-center justify-center gap-[24px] p-[24px]"
+      className="absolute inset-0 bg-[#0d0d0f] flex flex-col"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 1.05 }}
       transition={{ duration: 0.5 }}
     >
+      {/* Logo — absolutely centered in screen */}
       <motion.div
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
         initial={{ opacity: 0, scale: 0.75 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -37,12 +39,13 @@ export function SplashScreen() {
         </svg>
       </motion.div>
 
+      {/* "Cardboard" text — near bottom, not too far down */}
       <motion.p
-        className="text-white text-[36px] sm:text-[44px] leading-[1.2] tracking-tight m-0"
+        className="absolute bottom-[56px] left-0 right-0 text-center text-white text-[28px] tracking-tight m-0"
         style={{ fontFamily: "Inter, sans-serif", fontWeight: 700 }}
-        initial={{ opacity: 0, y: 12 }}
+        initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.55, ease: "easeOut" }}
+        transition={{ delay: 0.45, duration: 0.55, ease: "easeOut" }}
       >
         Cardboard
       </motion.p>

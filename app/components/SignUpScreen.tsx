@@ -17,11 +17,14 @@ const GOOGLE_RED =
 const MAIL_PATH =
   "M2 16C1.45 16 0.979167 15.8042 0.5875 15.4125C0.195833 15.0208 0 14.55 0 14V2C0 1.45 0.195833 0.979167 0.5875 0.5875C0.979167 0.195833 1.45 0 2 0H18C18.55 0 19.0208 0.195833 19.4125 0.5875C19.8042 0.979167 20 1.45 20 2V14C20 14.55 19.8042 15.0208 19.4125 15.4125C19.0208 15.8042 18.55 16 18 16H2ZM10 9L2 4V14H18V4L10 9ZM10 7L18 2H2L10 7ZM2 4V2V14V4Z";
 
+const BACK_ARROW = "M4.78125 9.75L11.7813 15.8167L10 17.3333L0 8.66667L10 0L11.7813 1.51667L4.78125 7.58333H20V9.75H4.78125Z";
+
 interface Props {
   onEmailSignUp: () => void;
+  onBack?: () => void;
 }
 
-export function SignUpScreen({ onEmailSignUp }: Props) {
+export function SignUpScreen({ onEmailSignUp, onBack }: Props) {
   return (
     <motion.div
       className="absolute inset-0 bg-[#0d0d0f] flex flex-col justify-center items-center p-[24px] overflow-y-auto"
@@ -31,6 +34,18 @@ export function SignUpScreen({ onEmailSignUp }: Props) {
       transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <div className="flex flex-col w-full max-w-[380px] gap-[32px] my-auto py-[16px]">
+        {/* Back button */}
+        {onBack && (
+          <button
+            onClick={onBack}
+            className="self-start flex items-center justify-center w-[36px] h-[36px] -ml-[6px] active:opacity-60 transition-opacity focus-visible:ring-2 focus-visible:ring-[#0088ff] rounded-full"
+            aria-label="Go back"
+          >
+            <svg fill="none" height="17" viewBox="0 0 20 17.3333" width="20">
+              <path d={BACK_ARROW} fill="#858590" />
+            </svg>
+          </button>
+        )}
         {/* Header */}
         <div className="flex flex-col gap-[8px] text-left">
           <p

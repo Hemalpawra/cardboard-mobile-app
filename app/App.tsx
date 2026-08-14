@@ -19,6 +19,17 @@ import { ProjectReadyScreen } from "./components/ProjectReadyScreen";
 import { AiAssistantScreen } from "./components/AiAssistantScreen";
 import { ProjectsScreen } from "./components/ProjectsScreen";
 import { CollaborationScreen } from "./components/CollaborationScreen";
+import { NotificationsScreen } from "./components/NotificationsScreen";
+import { ProjectsSearchScreen } from "./components/ProjectsSearchScreen";
+import { ProjectEditingScreen } from "./components/ProjectEditingScreen";
+import { ProjectExportScreen } from "./components/ProjectExportScreen";
+import { ExportProgressScreen } from "./components/ExportProgressScreen";
+import { CommentThreadScreen } from "./components/CommentThreadScreen";
+import { ShareProjectScreen } from "./components/ShareProjectScreen";
+import { VersionHistoryScreen } from "./components/VersionHistoryScreen";
+import { VersionDetailsScreen } from "./components/VersionDetailsScreen";
+import { RestoreProgressScreen } from "./components/RestoreProgressScreen";
+import { ReviewChangesScreen } from "./components/ReviewChangesScreen";
 
 type AppScreen =
   | "splash"
@@ -39,11 +50,29 @@ type AppScreen =
   | "home"
   | "ai-assistant"
   | "projects"
-  | "collaboration";
+  | "collaboration"
+  | "notifications"
+  | "projects-search"
+  | "review-before"
+  | "review-after"
+  | "project-editing"
+  | "project-export"
+  | "export-progress"
+  | "comment-thread"
+  | "share-project"
+  | "version-history"
+  | "version-details"
+  | "restore-progress";
 
 export default function App() {
-  const [screen, setScreen] = useState<AppScreen>("splash");
+  const [screen, setScreenState] = useState<AppScreen>("splash");
+  const [previousScreen, setPreviousScreen] = useState<AppScreen>("home");
   const email = "john@gmail.com";
+
+  const setScreen = (newScreen: AppScreen) => {
+    setPreviousScreen(screen);
+    setScreenState(newScreen);
+  };
 
   useEffect(() => {
     if (screen !== "splash") return;
@@ -70,6 +99,7 @@ export default function App() {
           {screen === "signup" && (
             <SignUpScreen
               key="signup"
+              onBack={() => setScreen("onboarding")}
               onEmailSignUp={() => setScreen("signup-email")}
             />
           )}
@@ -171,7 +201,7 @@ export default function App() {
           {screen === "project-ready" && (
             <ProjectReadyScreen
               key="project-ready"
-              onOpenProject={() => setScreen("ai-assistant")}
+              onOpenProject={() => setScreen("project-editing")}
               onBack={() => setScreen("home")}
             />
           )}
@@ -181,8 +211,9 @@ export default function App() {
               key="home"
               onNavigateAi={() => setScreen("ai-assistant")}
               onNavigateProjects={() => setScreen("projects")}
-              onSelectCollaboration={() => setScreen("collaboration")}
-              onSelectProject={() => setScreen("ai-assistant")}
+              onSelectCollaboration={() => setScreen("notifications")}
+              onSelectProject={() => setScreen("project-editing")}
+              onNotifications={() => setScreen("notifications")}
             />
           )}
 
@@ -199,14 +230,115 @@ export default function App() {
               onNavigateHome={() => setScreen("home")}
               onNavigateAi={() => setScreen("ai-assistant")}
               onNewProject={() => setScreen("importing")}
-              onSelectProject={() => setScreen("ai-assistant")}
+              onSelectProject={() => setScreen("project-editing")}
+              onSearch={() => setScreen("projects-search")}
             />
           )}
 
           {screen === "collaboration" && (
             <CollaborationScreen
               key="collaboration"
+              onBack={() => setScreen("project-editing")}
+              onShare={() => setScreen("share-project")}
+              onComment={() => setScreen("comment-thread")}
+            />
+          )}
+
+          {screen === "notifications" && (
+            <NotificationsScreen
+              key="notifications"
               onBack={() => setScreen("home")}
+            />
+          )}
+
+          {screen === "projects-search" && (
+            <ProjectsSearchScreen
+              key="projects-search"
+              onBack={() => setScreen("projects")}
+              onSelectProject={() => setScreen("project-editing")}
+            />
+          )}
+
+          {screen === "review-before" && (
+            <ReviewChangesScreen
+              key="review-before"
+              defaultTab="before"
+              onBack={() => setScreenState(previousScreen)}
+              onApply={() => setScreen("project-editing")}
+            />
+          )}
+
+          {screen === "review-after" && (
+            <ReviewChangesScreen
+              key="review-after"
+              defaultTab="after"
+              onBack={() => setScreenState(previousScreen)}
+              onApply={() => setScreen("project-editing")}
+              onDiscard={() => setScreen("review-before")}
+            />
+          )}
+
+          {screen === "project-editing" && (
+            <ProjectEditingScreen
+              key="project-editing"
+              onBack={() => setScreenState(previousScreen === "review-before" || previousScreen === "review-after" ? previousScreen : "home")}
+              onExport={() => setScreen("project-export")}
+              onNavigateVersionHistory={() => setScreen("version-history")}
+              onNavigateCollaboration={() => setScreen("collaboration")}
+            />
+          )}
+
+          {screen === "project-export" && (
+            <ProjectExportScreen
+              key="project-export"
+              onBack={() => setScreen("project-editing")}
+              onExportStart={() => setScreen("export-progress")}
+            />
+          )}
+
+          {screen === "export-progress" && (
+            <ExportProgressScreen
+              key="export-progress"
+              onHome={() => setScreen("home")}
+              onShare={() => setScreen("home")}
+            />
+          )}
+
+          {screen === "comment-thread" && (
+            <CommentThreadScreen
+              key="comment-thread"
+              onBack={() => setScreen("collaboration")}
+            />
+          )}
+
+          {screen === "share-project" && (
+            <ShareProjectScreen
+              key="share-project"
+              onBack={() => setScreen("collaboration")}
+            />
+          )}
+
+          {screen === "version-history" && (
+            <VersionHistoryScreen
+              key="version-history"
+              onBack={() => setScreen("project-editing")}
+              onSelectVersion={() => setScreen("version-details")}
+            />
+          )}
+
+          {screen === "version-details" && (
+            <VersionDetailsScreen
+              key="version-details"
+              onBack={() => setScreen("version-history")}
+              onRestore={() => setScreen("restore-progress")}
+            />
+          )}
+
+          {screen === "restore-progress" && (
+            <RestoreProgressScreen
+              key="restore-progress"
+              onHome={() => setScreen("home")}
+              onEdit={() => setScreen("project-editing")}
             />
           )}
         </AnimatePresence>

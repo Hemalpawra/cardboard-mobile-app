@@ -1,11 +1,14 @@
 import { motion } from "motion/react";
 import ProjectsImport from "../../imports/Projects";
+import { BottomNav } from "./HomeScreen";
 
 interface Props {
   onNavigateHome: () => void;
   onNavigateAi: () => void;
   onNewProject: () => void;
   onSelectProject: () => void;
+  onSearch: () => void;
+  onBack?: () => void;
 }
 
 export function ProjectsScreen({
@@ -13,6 +16,7 @@ export function ProjectsScreen({
   onNavigateAi,
   onNewProject,
   onSelectProject,
+  onSearch,
 }: Props) {
   return (
     <motion.div
@@ -22,23 +26,9 @@ export function ProjectsScreen({
       exit={{ opacity: 0, scale: 1.02 }}
       transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
-      <div className="relative size-full overflow-hidden">
+      {/* Scrollable content area (bottom nav NOT inside scroll) */}
+      <div className="flex-1 min-h-0 overflow-y-auto scroll-smooth-ios relative">
         <ProjectsImport />
-
-        {/* Bottom Navigation overlays */}
-        {/* Left Tab: Home */}
-        <button
-          onClick={onNavigateHome}
-          className="absolute bottom-[30px] left-[24px] w-[90px] h-[54px] z-20 opacity-0 cursor-pointer"
-          aria-label="Navigate Home"
-        />
-
-        {/* Center Tab: AI Star */}
-        <button
-          onClick={onNavigateAi}
-          className="absolute bottom-[30px] left-1/2 -translate-x-1/2 w-[70px] h-[54px] z-20 opacity-0 cursor-pointer"
-          aria-label="Open AI Assistant"
-        />
 
         {/* Click overlay for "New Project" card */}
         <button
@@ -47,13 +37,34 @@ export function ProjectsScreen({
           aria-label="Create New Project"
         />
 
-        {/* Click overlay for existing project cards */}
+        {/* Click overlay for existing projects (first row right) */}
         <button
           onClick={onSelectProject}
           className="absolute top-[200px] right-[24px] w-[calc(50%-28px)] h-[160px] z-20 opacity-0 cursor-pointer"
           aria-label="Select Project"
         />
+
+        {/* Click overlay for existing projects (second row) */}
+        <button
+          onClick={onSelectProject}
+          className="absolute top-[380px] left-[24px] right-[24px] h-[160px] z-20 opacity-0 cursor-pointer"
+          aria-label="Select Project"
+        />
+
+        {/* Click overlay for Search icon/bar */}
+        <button
+          onClick={onSearch}
+          className="absolute top-[80px] right-[24px] w-[24px] h-[24px] z-20 opacity-0 cursor-pointer"
+          aria-label="Search Projects"
+        />
       </div>
+
+      {/* Fixed bottom nav — always visible, never scrolls */}
+      <BottomNav
+        active="projects"
+        onHome={onNavigateHome}
+        onAi={onNavigateAi}
+      />
     </motion.div>
   );
 }
