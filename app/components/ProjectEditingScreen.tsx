@@ -18,7 +18,8 @@ const FLIP_ICON = "M15 21h2v-2h-2v2zm4-12h2V7h-2v2zM3 5v14c0 1.1.9 2 2 2h4v-2H5V
 const CROP_ICON = "M17 15h2V7c0-1.1-.9-2-2-2H9v2h8v8zM7 17V1H5v4H1v2h4v10c0 1.1.9 2 2 2h10v4h2v-4h4v-2H7z";
 const SPEED_ICON = "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm4.25-12.75L11 13V7h2v4.25l3.66-2.11-.41-.89z";
 
-const SPARKLE_ICON = "M12 2l2.63 5.32L20 8.27l-4 3.9.94 5.51L12 15.1l-4.94 2.58L8 12.17 4 8.27l5.37-.95L12 2z";
+const SPARKLE_LARGE = "M11.5 21C11.5 21 11.5 13.5 3 12.5C11.5 11.5 11.5 4 11.5 4C11.5 4 11.5 11.5 20 12.5C11.5 13.5 11.5 21 11.5 21Z";
+const SPARKLE_SMALL = "M19 10C19 10 19 7 15.5 6.5C19 6 19 3 19 3C19 3 19 6 22.5 6.5C19 7 19 10 19 10Z";
 const PENCIL_ICON = "M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z";
 
 const VIDEO_THUMB = new URL(
@@ -90,7 +91,7 @@ export function ProjectEditingScreen({ onBack, onExport, onNavigateVersionHistor
       </div>
 
       {/* Video Preview Area */}
-      <div className="shrink-0 relative w-full aspect-video bg-black overflow-hidden border-b border-[#1c1c24]">
+      <div className="shrink-0 relative w-full aspect-video bg-black overflow-hidden border-b border-[#1c1c24] rounded-t-[16px] border-t-[1px] border-x-[1px] border-[#0088ff] shadow-[0_-4px_20px_rgba(0,136,255,0.1)]">
         <img src={VIDEO_THUMB} alt="Preview" className="w-full h-full object-cover" />
       </div>
 
@@ -202,6 +203,16 @@ export function ProjectEditingScreen({ onBack, onExport, onNavigateVersionHistor
                   </div>
                 </div>
              </div>
+
+             {/* Add Track Button */}
+             <div className="flex gap-[4px] h-[40px] pl-[64px] mt-[4px]">
+                <button className="flex-1 h-full rounded-[8px] bg-[#1a1a21] flex items-center px-[16px] gap-[8px] active:bg-[#252530] transition-colors">
+                  <svg fill="none" height="16" viewBox="0 0 24 24" width="16">
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="white" />
+                  </svg>
+                  <span className="text-white text-[14px] font-medium">Add</span>
+                </button>
+             </div>
           </div>
         </div>
 
@@ -210,8 +221,9 @@ export function ProjectEditingScreen({ onBack, onExport, onNavigateVersionHistor
 
         {/* FAB */}
         <button className="absolute right-[24px] bottom-[24px] w-[56px] h-[56px] rounded-[16px] bg-white shadow-[0_4px_16px_rgba(255,255,255,0.2)] flex items-center justify-center z-20 active:scale-95 transition-transform">
-           <svg fill="none" height="32" viewBox="0 0 24 24" width="32">
-             <path d={SPARKLE_ICON} fill="#0d0d0f" />
+           <svg fill="none" height="28" viewBox="0 0 24 24" width="28">
+             <path d={SPARKLE_LARGE} fill="#0d0d0f" />
+             <path d={SPARKLE_SMALL} fill="#0d0d0f" />
            </svg>
         </button>
       </div>
