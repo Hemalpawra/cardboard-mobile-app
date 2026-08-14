@@ -80,23 +80,18 @@ export function WorkspaceNameScreen({ onBack, onContinue }: Props) {
         </div>
 
         <motion.button
-          whileTap={{ scale: 0.97 }}
+          whileTap={{ scale: 0.96 }}
           transition={{ duration: 0.12 }}
           onClick={isValid ? onContinue : undefined}
-          className="w-full h-[54px] bg-white text-[#0d0d0f] rounded-[12px] flex items-center justify-center shrink-0 transition-opacity"
+          className="w-full h-[56px] bg-white text-[#0d0d0f] rounded-[12px] flex items-center justify-center shrink-0 font-medium transition-all focus-visible:ring-2 focus-visible:ring-[#0088ff]"
           style={{
             fontFamily: "Inter, sans-serif",
-            fontWeight: 500,
             fontSize: 16,
             opacity: isValid ? 1 : 0.5,
           }}
         >
           Continue
         </motion.button>
-      </div>
-
-      <div className="h-[30px] relative shrink-0 w-full">
-        <div className="absolute bg-[#32323a] bottom-[8px] h-[5px] left-1/2 -translate-x-1/2 rounded-[100px] w-[135px]" />
       </div>
     </motion.div>
   );

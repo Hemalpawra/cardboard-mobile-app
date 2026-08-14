@@ -24,25 +24,23 @@ interface Props {
 export function SignUpScreen({ onEmailSignUp }: Props) {
   return (
     <motion.div
-      className="absolute inset-0 bg-[#0d0d0f] flex flex-col"
+      className="absolute inset-0 bg-[#0d0d0f] flex flex-col justify-center items-center p-[24px] overflow-y-auto"
       initial={{ opacity: 0, x: 32 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -32 }}
       transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
-      <StatusBar />
-
-      <div className="flex flex-col flex-1 gap-[40px] p-[24px] min-h-0">
+      <div className="flex flex-col w-full max-w-[380px] gap-[32px] my-auto py-[16px]">
         {/* Header */}
-        <div className="flex flex-col gap-[8px]">
+        <div className="flex flex-col gap-[8px] text-left">
           <p
-            className="text-white text-[32px] leading-[44px] m-0"
+            className="text-white text-[28px] sm:text-[32px] leading-[1.2] m-0"
             style={{ fontFamily: "Inter, sans-serif", fontWeight: 600 }}
           >
             Create your account
           </p>
           <p
-            className="text-[#aeaeb5] text-[20px] leading-[30px] m-0"
+            className="text-[#aeaeb5] text-[18px] sm:text-[20px] leading-[1.4] m-0"
             style={{ fontFamily: "Inter, sans-serif", fontWeight: 500 }}
           >
             Join thousands of video creators.
@@ -53,10 +51,10 @@ export function SignUpScreen({ onEmailSignUp }: Props) {
         <div className="flex flex-col gap-[12px]">
           {/* Apple */}
           <motion.button
-            whileTap={{ scale: 0.97 }}
+            whileTap={{ scale: 0.96 }}
             transition={{ duration: 0.12 }}
             onClick={() => {}}
-            className="flex items-center justify-center gap-[8px] w-full h-[54px] bg-white rounded-[12px]"
+            className="flex items-center justify-center gap-[8px] w-full h-[54px] bg-white hover:bg-white/90 rounded-[12px] transition-all focus-visible:ring-2 focus-visible:ring-[#0088ff]"
           >
             <svg fill="none" height="24" viewBox="0 0 19.5425 24.0582" width="19.5425">
               <path d={APPLE_PATH} fill="#0d0d0f" />
@@ -71,12 +69,11 @@ export function SignUpScreen({ onEmailSignUp }: Props) {
 
           {/* Google */}
           <motion.button
-            whileTap={{ scale: 0.97 }}
+            whileTap={{ scale: 0.96 }}
             transition={{ duration: 0.12 }}
             onClick={() => {}}
-            className="flex items-center justify-center gap-[8px] w-full h-[54px] bg-white rounded-[12px]"
+            className="flex items-center justify-center gap-[8px] w-full h-[54px] bg-white hover:bg-white/90 rounded-[12px] transition-all focus-visible:ring-2 focus-visible:ring-[#0088ff]"
           >
-            {/* Google SVG composed of 4 colored paths */}
             <svg fill="none" height="20" viewBox="0 0 21.6826 20" width="21.6826">
               <g transform="translate(2.08, 5.20638)">
                 <path d={GOOGLE_BLUE} fill="#4285F4" transform="translate(9.2, -5.2)" />
@@ -94,7 +91,7 @@ export function SignUpScreen({ onEmailSignUp }: Props) {
           </motion.button>
 
           {/* Or divider */}
-          <div className="flex items-center gap-[16px]">
+          <div className="flex items-center gap-[16px] my-[4px]">
             <div className="flex-1 h-px" style={{ background: "#3A3A40" }} />
             <span
               className="text-[#858590] text-[14px] leading-[20px] shrink-0"
@@ -107,10 +104,10 @@ export function SignUpScreen({ onEmailSignUp }: Props) {
 
           {/* Email */}
           <motion.button
-            whileTap={{ scale: 0.97 }}
+            whileTap={{ scale: 0.96 }}
             transition={{ duration: 0.12 }}
             onClick={onEmailSignUp}
-            className="flex items-center justify-center gap-[8px] w-full h-[54px] rounded-[12px] border border-[#32323a]"
+            className="flex items-center justify-center gap-[8px] w-full h-[54px] rounded-[12px] border border-[#32323a] hover:border-[#0088ff]/50 transition-all focus-visible:ring-2 focus-visible:ring-[#0088ff]"
             style={{ background: "rgba(163,163,168,0.05)" }}
           >
             <svg fill="none" height="16" viewBox="0 0 20 16" width="20">
@@ -126,26 +123,21 @@ export function SignUpScreen({ onEmailSignUp }: Props) {
         </div>
 
         {/* Footer */}
-        <div className="mt-auto flex items-center justify-center gap-[4px]">
+        <div className="flex items-center justify-center gap-[4px] pt-[8px]">
           <span
-            className="text-[#858590] text-[16px] leading-[24px]"
+            className="text-[#858590] text-[15px] sm:text-[16px] leading-[24px]"
             style={{ fontFamily: "Inter, sans-serif" }}
           >
             Already have an account?
           </span>
           <button
             onClick={() => {}}
-            className="text-[#0088ff] text-[16px] leading-[24px] active:opacity-70 transition-opacity"
-            style={{ fontFamily: "Inter, sans-serif", fontWeight: 500 }}
+            className="text-[#0088ff] text-[15px] sm:text-[16px] leading-[24px] active:opacity-70 transition-opacity font-medium"
+            style={{ fontFamily: "Inter, sans-serif" }}
           >
             Log in
           </button>
         </div>
-      </div>
-
-      {/* iPhone home indicator */}
-      <div className="h-[30px] relative shrink-0 w-full">
-        <div className="absolute bg-[#32323a] bottom-[8px] h-[5px] left-1/2 -translate-x-1/2 rounded-[100px] w-[135px]" />
       </div>
     </motion.div>
   );

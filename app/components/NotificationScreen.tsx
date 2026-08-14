@@ -106,28 +106,24 @@ export function NotificationScreen({ onBack, onEnable, onSkip }: Props) {
 
         <div className="flex flex-col gap-[16px] shrink-0">
           <motion.button
-            whileTap={{ scale: 0.97 }}
+            whileTap={{ scale: 0.96 }}
             transition={{ duration: 0.12 }}
             onClick={onEnable}
-            className="w-full h-[54px] bg-white text-[#0d0d0f] rounded-[12px] flex items-center justify-center"
-            style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: 16 }}
+            className="w-full h-[56px] bg-white text-[#0d0d0f] rounded-[12px] flex items-center justify-center font-medium transition-all focus-visible:ring-2 focus-visible:ring-[#0088ff]"
+            style={{ fontFamily: "Inter, sans-serif", fontSize: 16 }}
           >
             Enable Notifications
           </motion.button>
           <motion.button
-            whileTap={{ scale: 0.97 }}
+            whileTap={{ scale: 0.96 }}
             transition={{ duration: 0.12 }}
             onClick={onSkip}
-            className="w-full h-[54px] rounded-[12px] flex items-center justify-center border border-[#32323a]"
-            style={{ background: "rgba(163,163,168,0.05)", fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: 16, color: "#a9a9b4" }}
+            className="w-full h-[56px] rounded-[12px] flex items-center justify-center border border-[#32323a] font-medium transition-all focus-visible:ring-2 focus-visible:ring-[#0088ff]"
+            style={{ background: "rgba(163,163,168,0.05)", fontFamily: "Inter, sans-serif", fontSize: 16, color: "#a9a9b4" }}
           >
             Not now
           </motion.button>
         </div>
-      </div>
-
-      <div className="h-[30px] relative shrink-0 w-full">
-        <div className="absolute bg-[#32323a] bottom-[8px] h-[5px] left-1/2 -translate-x-1/2 rounded-[100px] w-[135px]" />
       </div>
     </motion.div>
   );

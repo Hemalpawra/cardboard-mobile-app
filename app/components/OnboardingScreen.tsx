@@ -111,7 +111,7 @@ export function OnboardingScreen({ onComplete, onSkip }: Props) {
         </AnimatePresence>
 
         {/* Bottom controls — outside AnimatePresence so they don't animate */}
-        <div className="flex flex-col gap-[24px] px-[24px] pb-[0px] shrink-0">
+        <div className="flex flex-col gap-[20px] px-[24px] pb-[24px] sm:pb-[32px] pt-[8px] shrink-0 w-full max-w-[420px] mx-auto">
           {/* Pagination */}
           <div className="flex gap-[8px] justify-center">
             {Array.from({ length: SLIDE_COUNT }).map((_, i) => (
@@ -135,16 +135,11 @@ export function OnboardingScreen({ onComplete, onSkip }: Props) {
             onClick={goNext}
             whileTap={{ scale: 0.96 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="w-full bg-white text-[#0d0d0f] text-[16px] rounded-[12px] py-[10px] px-[16px] text-center leading-[24px]"
-            style={{ fontFamily: "Inter, sans-serif", fontWeight: 500 }}
+            className="w-full bg-white hover:bg-white/90 text-[#0d0d0f] text-[16px] rounded-[12px] h-[56px] flex items-center justify-center font-medium transition-all focus-visible:ring-2 focus-visible:ring-[#0088ff]"
+            style={{ fontFamily: "Inter, sans-serif" }}
           >
             Continue
           </motion.button>
-        </div>
-
-        {/* iPhone home indicator */}
-        <div className="h-[30px] relative shrink-0 w-full" data-name="Iphone Indicator">
-          <div className="absolute bg-[#32323a] bottom-[8px] h-[5px] left-1/2 -translate-x-1/2 rounded-[100px] w-[135px]" />
         </div>
       </div>
     </motion.div>

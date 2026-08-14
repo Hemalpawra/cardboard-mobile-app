@@ -5,18 +5,16 @@ import { StatusBar } from "./StatusBar";
 export function SplashScreen() {
   return (
     <motion.div
-      className="absolute inset-0 bg-[#0d0d0f] flex flex-col items-center justify-between pb-[80px]"
+      className="absolute inset-0 bg-[#0d0d0f] flex flex-col items-center justify-center gap-[24px] p-[24px]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 1.05 }}
       transition={{ duration: 0.5 }}
     >
-      <StatusBar />
-
       <motion.div
         initial={{ opacity: 0, scale: 0.75 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.25, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ delay: 0.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       >
         <svg fill="none" height="77" viewBox="0 0 114 77" width="114">
           <g clipPath="url(#splash-clip)">
@@ -40,13 +38,13 @@ export function SplashScreen() {
       </motion.div>
 
       <motion.p
-        className="text-white text-[44px] leading-[66px]"
+        className="text-white text-[36px] sm:text-[44px] leading-[1.2] tracking-tight m-0"
         style={{ fontFamily: "Inter, sans-serif", fontWeight: 700 }}
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.55, ease: "easeOut" }}
+        transition={{ delay: 0.4, duration: 0.55, ease: "easeOut" }}
       >
-        Carboard
+        Cardboard
       </motion.p>
     </motion.div>
   );

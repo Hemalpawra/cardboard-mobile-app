@@ -107,11 +107,11 @@ export function VerifyCodeScreen({ onBack, onVerified, email = "john@gmail.com" 
 
             <div style={{ fontFamily: "Inter, sans-serif", fontSize: 16 }}>
               {timer > 0 ? (
-                <span className="text-[#aeaeb5]">Resend code in {timerStr}</span>
+                <span className="text-[#aeaeb5] tabular-nums">Resend code in {timerStr}</span>
               ) : (
                 <button
                   onClick={() => setTimer(28)}
-                  className="text-[#0088ff] active:opacity-70"
+                  className="text-[#0088ff] active:opacity-70 font-medium"
                 >
                   Resend code
                 </button>
@@ -121,23 +121,18 @@ export function VerifyCodeScreen({ onBack, onVerified, email = "john@gmail.com" 
         </div>
 
         <motion.button
-          whileTap={{ scale: 0.97 }}
+          whileTap={{ scale: 0.96 }}
           transition={{ duration: 0.12 }}
           onClick={isComplete ? onVerified : undefined}
-          className="w-full h-[54px] bg-white text-[#0d0d0f] rounded-[12px] flex items-center justify-center transition-opacity"
+          className="w-full h-[56px] bg-white text-[#0d0d0f] rounded-[12px] flex items-center justify-center transition-all focus-visible:ring-2 focus-visible:ring-[#0088ff] font-medium"
           style={{
             fontFamily: "Inter, sans-serif",
-            fontWeight: 500,
             fontSize: 16,
             opacity: isComplete ? 1 : 0.5,
           }}
         >
           Continue
         </motion.button>
-      </div>
-
-      <div className="h-[30px] relative shrink-0 w-full">
-        <div className="absolute bg-[#32323a] bottom-[8px] h-[5px] left-1/2 -translate-x-1/2 rounded-[100px] w-[135px]" />
       </div>
     </motion.div>
   );

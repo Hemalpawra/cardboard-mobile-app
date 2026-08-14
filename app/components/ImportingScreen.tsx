@@ -181,21 +181,16 @@ export function ImportingScreen({ onBack, onGallery, onRecord, onAI, onSkip }: P
           whileTap={{ scale: 0.96 }}
           transition={{ duration: 0.12 }}
           onClick={onSkip}
-          className="w-full h-[56px] rounded-[12px] flex items-center justify-center border border-[#32323a] shrink-0"
+          className="w-full h-[56px] rounded-[12px] flex items-center justify-center border border-[#32323a] shrink-0 font-medium transition-all focus-visible:ring-2 focus-visible:ring-[#0088ff]"
           style={{
             background: "rgba(163,163,168,0.05)",
             fontFamily: "Inter, sans-serif",
-            fontWeight: 500,
             fontSize: 16,
             color: "#a9a9b4",
           }}
         >
           Not now
         </motion.button>
-      </div>
-
-      <div className="h-[30px] relative shrink-0 w-full" data-name="Iphone Indicator">
-        <div className="absolute bg-[#32323a] bottom-[8px] h-[5px] left-1/2 -translate-x-1/2 rounded-[100px] w-[135px]" />
       </div>
     </motion.div>
   );

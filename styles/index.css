@@ -3,8 +3,15 @@
 @import './theme.css';
 
 /* Global rules to remove top status bar and bottom iPhone indicator from all app screens */
-[data-name="Status Bar"],
-[data-name="Iphone Indicator"] {
+[data-name*="Status"],
+[data-name*="status"],
+[data-name*="Indicator"],
+[data-name*="indicator"],
+[data-name*="Home Indicator"],
+[class*="w-[135px]"],
+div:has(> [class*="w-[135px]"]),
+div:has(> svg[viewBox*="85.3291"]) {
   display: none !important;
 }
+
 
