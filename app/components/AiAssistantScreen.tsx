@@ -30,7 +30,7 @@ export function AiAssistantScreen({ onBack }: Props) {
         {/* Header navigation overlay — Back to Home */}
         <button
           onClick={onBack}
-          className="absolute top-[68px] left-[24px] w-[40px] h-[40px] z-30 opacity-0 cursor-pointer"
+          className="absolute top-[68px] left-[24px] w-[40px] h-[40px] z-30 opacity-0 cursor-pointer focus-visible:opacity-100 focus-visible:ring-2 focus-visible:ring-[#0088FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0d0f] rounded-[8px]"
           aria-label="Back to home"
         />
 
@@ -53,12 +53,12 @@ export function AiAssistantScreen({ onBack }: Props) {
               onChange={(e) => setInputVal(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
               placeholder="Ask AI to trim, add captions, find B-roll..."
-              className="flex-1 bg-transparent text-white placeholder-[#585865] text-[15px] focus:outline-none"
+              className="flex-1 bg-transparent text-white placeholder-[#8e8e9a] text-[15px] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0088FF] rounded-[6px]"
               style={{ fontFamily: "Inter, sans-serif" }}
             />
             <button
               onClick={handleSend}
-              className="bg-[#0088FF] hover:bg-[#0077EE] text-white text-[14px] px-[14px] py-[6px] rounded-[20px] font-medium transition-colors"
+              className="bg-[#0088FF] hover:bg-[#0077EE] text-white text-[14px] px-[14px] py-[6px] rounded-[20px] font-medium transition-colors focus-visible:ring-2 focus-visible:ring-white"
             >
               Send
             </button>

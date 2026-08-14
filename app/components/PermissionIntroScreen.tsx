@@ -408,10 +408,10 @@ export function PermissionIntroScreen({ onBack, onContinue }: Props) {
 
         {/* Continue button */}
         <motion.button
-          whileTap={{ scale: 0.97 }}
+          whileTap={{ scale: 0.96 }}
           transition={{ duration: 0.12 }}
           onClick={onContinue}
-          className="w-full h-[54px] bg-white text-[#0d0d0f] rounded-[12px] flex items-center justify-center shrink-0"
+          className="w-full h-[56px] bg-white text-[#0d0d0f] rounded-[12px] flex items-center justify-center shrink-0"
           style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: 16 }}
         >
           Continue

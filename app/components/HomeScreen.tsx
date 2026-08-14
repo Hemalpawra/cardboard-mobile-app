@@ -29,28 +29,28 @@ export function HomeScreen({
         {/* Bottom Tab: AI Assistant Star (center) */}
         <button
           onClick={onNavigateAi}
-          className="absolute bottom-[30px] left-1/2 -translate-x-1/2 w-[70px] h-[54px] z-20 opacity-0 cursor-pointer"
+          className="absolute bottom-[30px] left-1/2 -translate-x-1/2 w-[70px] h-[54px] z-20 opacity-0 focus-visible:opacity-100 focus-visible:ring-2 focus-visible:ring-[#0088FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0d0f] rounded-[24px] cursor-pointer"
           aria-label="Open AI Assistant"
         />
 
         {/* Bottom Tab: Projects (right) */}
         <button
           onClick={onNavigateProjects}
-          className="absolute bottom-[30px] right-[24px] w-[90px] h-[54px] z-20 opacity-0 cursor-pointer"
+          className="absolute bottom-[30px] right-[24px] w-[90px] h-[54px] z-20 opacity-0 focus-visible:opacity-100 focus-visible:ring-2 focus-visible:ring-[#0088FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0d0f] rounded-[12px] cursor-pointer"
           aria-label="Open Projects"
         />
 
         {/* Click overlay for "Continue Editing" Video Card */}
         <button
           onClick={onSelectProject}
-          className="absolute top-[130px] left-[24px] right-[24px] h-[200px] z-20 opacity-0 cursor-pointer"
+          className="absolute top-[130px] left-[24px] right-[24px] h-[200px] z-20 opacity-0 focus-visible:opacity-100 focus-visible:ring-2 focus-visible:ring-[#0088FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0d0f] rounded-[12px] cursor-pointer"
           aria-label="Continue editing project"
         />
 
         {/* Click overlay for "Needs Your Attention" Notifications list */}
         <button
           onClick={onSelectCollaboration}
-          className="absolute top-[520px] left-[24px] right-[24px] h-[180px] z-20 opacity-0 cursor-pointer"
+          className="absolute top-[520px] left-[24px] right-[24px] h-[180px] z-20 opacity-0 focus-visible:opacity-100 focus-visible:ring-2 focus-visible:ring-[#0088FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0d0f] rounded-[12px] cursor-pointer"
           aria-label="Open Team Collaboration"
         />
       </div>

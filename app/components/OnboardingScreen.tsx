@@ -161,7 +161,7 @@ function Slide0() {
           <p className="m-0">talking</p>
         </div>
         <p className="text-[#aeaeb5] text-[20px] leading-[30px] m-0" style={{ fontFamily: "Inter, sans-serif", fontWeight: 500 }}>
-          Your Ai Editor can trim, caption, find B-roll and prepare videos for every platform.
+          Your AI Editor can trim, caption, find B-roll and prepare videos for every platform.
         </p>
       </div>
 
@@ -234,7 +234,7 @@ function Slide1() {
   return (
     <>
       {/* Card visual comes first in Figma */}
-      <div className="flex-1 min-h-0 flex flex-col gap-[10px] items-start justify-center opacity-90 overflow-hidden px-[24px] py-[25px] rounded-[12px]">
+      <div className="flex-1 min-h-0 flex flex-col gap-[8px] items-start justify-center opacity-90 overflow-hidden px-[24px] py-[24px] rounded-[12px]">
         {/* Instruction bubble (right-aligned) */}
         <div className="flex flex-col items-end w-full shrink-0">
           <div className="bg-[#32323a] rounded-[12px] p-[10px]" style={{ width: 262 }}>
@@ -275,7 +275,7 @@ function Slide1() {
           <p className="m-0">Multiple edits.</p>
         </div>
         <div className="flex flex-col text-[#aeaeb5] text-[20px] leading-[30px]" style={{ fontFamily: "Inter, sans-serif", fontWeight: 500 }}>
-          <p className="m-0">Let Ai handle the boring work</p>
+          <p className="m-0">Let AI handle the boring work</p>
           <p className="m-0">so you can focus on your story.</p>
         </div>
       </div>
@@ -309,7 +309,7 @@ function CheckResult({ label }: { label: string }) {
 function Slide2() {
   const comments = [
     { img: imgSarah, name: "Sarah", text: "Can we Shorten this part?", time: "2m ago" },
-    { img: imgAlex, name: "Alex", text: "Ai suggestion applied", time: "5m ago" },
+    { img: imgAlex, name: "Alex", text: "AI suggestion applied", time: "5m ago" },
     { img: imgJordan, name: "Jordan", text: "Feedback received", time: "10m ago" },
     { img: imgTaylor, name: "Taylor", text: "Design revision sent", time: "15m ago" },
   ];
@@ -323,7 +323,7 @@ function Slide2() {
             <div
               key={c.name}
               className="bg-[rgba(163,163,168,0.05)] flex items-center justify-between overflow-hidden p-[10px] rounded-[12px] shrink-0 w-full"
-              style={{ minHeight: 86 }}
+              style={{ minHeight: 88 }}
             >
               <div className="flex flex-1 gap-[10px] items-start min-w-0">
                 <img
@@ -360,8 +360,8 @@ function Slide2() {
           Built for teams
         </p>
         <div className="flex flex-col text-[#aeaeb5] text-[20px] leading-[30px]" style={{ fontFamily: "Inter, sans-serif", fontWeight: 500 }}>
-          <p className="m-0">Comment, suggests and approve</p>
-          <p className="m-0">videos together. just like figma.</p>
+          <p className="m-0">Comment, suggest, and approve</p>
+          <p className="m-0">videos together — just like Figma.</p>
         </div>
       </div>
     </>

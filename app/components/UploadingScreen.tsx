@@ -39,7 +39,7 @@ export function UploadingScreen({ onComplete }: Props) {
         <div className="absolute top-[415px] left-[24px] right-[24px] z-20 flex flex-col gap-[8px]">
           <div className="flex justify-between text-[#aeaeb5] text-[20px] font-medium" style={{ fontFamily: "Inter, sans-serif" }}>
             <span>Uploading...</span>
-            <span>{progress}%</span>
+            <span className="tabular-nums">{progress}%</span>
           </div>
           <div className="h-[8px] bg-[#32323a] rounded-[4px] overflow-hidden w-full">
             <motion.div

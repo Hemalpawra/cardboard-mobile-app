@@ -178,10 +178,10 @@ export function ImportingScreen({ onBack, onGallery, onRecord, onAI, onSkip }: P
         </div>
 
         <motion.button
-          whileTap={{ scale: 0.97 }}
+          whileTap={{ scale: 0.96 }}
           transition={{ duration: 0.12 }}
           onClick={onSkip}
-          className="w-full h-[54px] rounded-[12px] flex items-center justify-center border border-[#32323a] shrink-0"
+          className="w-full h-[56px] rounded-[12px] flex items-center justify-center border border-[#32323a] shrink-0"
           style={{
             background: "rgba(163,163,168,0.05)",
             fontFamily: "Inter, sans-serif",
