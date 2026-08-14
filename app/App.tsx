@@ -302,8 +302,8 @@ export default function App() {
           {screen === "export-progress" && (
             <ExportProgressScreen
               key="export-progress"
-              onHome={() => setScreen("home")}
-              onShare={() => setScreen("home")}
+              onCancel={() => setScreen("project-export")}
+              onDone={() => setScreen("project-editing")}
             />
           )}
 
