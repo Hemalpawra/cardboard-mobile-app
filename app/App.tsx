@@ -285,6 +285,9 @@ export default function App() {
               onExport={() => setScreen("project-export")}
               onNavigateVersionHistory={() => setScreen("version-history")}
               onNavigateCollaboration={() => setScreen("collaboration")}
+              onNavigateAi={() => setScreen("ai-assistant")}
+              onShareProject={() => setScreen("share-project")}
+              onOpenCommentThread={() => setScreen("comment-thread")}
             />
           )}
 
@@ -307,14 +310,14 @@ export default function App() {
           {screen === "comment-thread" && (
             <CommentThreadScreen
               key="comment-thread"
-              onBack={() => setScreen("collaboration")}
+              onBack={() => setScreen("project-editing")}
             />
           )}
 
           {screen === "share-project" && (
             <ShareProjectScreen
               key="share-project"
-              onBack={() => setScreen("collaboration")}
+              onBack={() => setScreen("project-editing")}
             />
           )}
 
