@@ -131,7 +131,7 @@ function Icon() {
       <svg className="absolute block inset-0 size-full" fill="none" height="100" preserveAspectRatio="none" viewBox="0 0 91.3345 100" width="91.3345">
         <g id="Icon">
           <foreignObject height="107.35" width="109.118" x="-5.21793" y="-8.73331">
-            <div style={{ backdropFilter: "blur(7.5px)", clipPath: "url(#bgblur_0_0_66_clip_path)", height: "100%", width: "100%" }} xmlns="http://www.w3.org/1999/xhtml" />
+            <div style={{ backdropFilter: "blur(7.5px)", clipPath: "url(#bgblur_0_0_66_clip_path)", height: "100%", width: "100%" }} />
           </foreignObject>
           <g id="Fill 1" data-figma-bg-blur-radius="15">
             <mask fill="black" height="89.7413" id="path-1-outside-1_0_66" maskUnits="userSpaceOnUse" width="93.8905" x="-1.18662" y="-1.20976">
@@ -142,7 +142,7 @@ function Icon() {
             <path d={svgPaths.p3537b080} fill="url(#paint0_linear_0_66)" mask="url(#path-1-outside-1_0_66)" />
           </g>
           <foreignObject height="46.5841" width="58.2689" x="26.0443" y="67.0418">
-            <div style={{ backdropFilter: "blur(7.5px)", clipPath: "url(#bgblur_1_0_66_clip_path)", height: "100%", width: "100%" }} xmlns="http://www.w3.org/1999/xhtml" />
+            <div style={{ backdropFilter: "blur(7.5px)", clipPath: "url(#bgblur_1_0_66_clip_path)", height: "100%", width: "100%" }} />
           </foreignObject>
           <g id="Fill 4" data-figma-bg-blur-radius="15">
             <mask fill="black" height="20.6098" id="path-3-outside-2_0_66" maskUnits="userSpaceOnUse" width="31.5027" x="40.0724" y="80.6027">
@@ -153,7 +153,7 @@ function Icon() {
             <path d={svgPaths.p17c7fa00} fill="url(#paint1_linear_0_66)" mask="url(#path-3-outside-2_0_66)" />
           </g>
           <foreignObject height="44.9089" width="43.8404" x="34.4228" y="4.70947">
-            <div style={{ backdropFilter: "blur(7.5px)", clipPath: "url(#bgblur_2_0_66_clip_path)", height: "100%", width: "100%" }} xmlns="http://www.w3.org/1999/xhtml" />
+            <div style={{ backdropFilter: "blur(7.5px)", clipPath: "url(#bgblur_2_0_66_clip_path)", height: "100%", width: "100%" }} />
           </foreignObject>
           <g filter="url(#filter2_d_0_66)" id="Path" data-figma-bg-blur-radius="15">
             <path d={svgPaths.p37b13a00} fill="url(#paint2_linear_0_66)" />
@@ -203,9 +203,8 @@ function Icon() {
 
 function Notification1() {
   return (
-    <div className="absolute contents inset-0" data-name="Notification">
-      <Bg />
-      <Icon />
+    <div className="absolute inset-0" data-name="Notification">
+      <img src="/assets/notification.png" alt="Notification" className="size-full object-contain" />
     </div>
   );
 }
@@ -289,7 +288,7 @@ function ButtonContainer() {
 
 function Content() {
   return (
-    <div className="content-stretch flex flex-[1_0_0] flex-col gap-[24px] items-center justify-center min-h-px pb-[36px] px-[24px] relative w-full" data-name="Content">
+    <div className="content-stretch flex flex-[1_0_0] flex-col gap-[24px] items-center justify-center min-h-px pb-[24px] px-[24px] relative w-full" data-name="Content">
       <div className="relative shrink-0 w-full">
         <div className="flex flex-row justify-center size-full">
           <div className="content-stretch flex items-start justify-between py-[6px] relative size-full">

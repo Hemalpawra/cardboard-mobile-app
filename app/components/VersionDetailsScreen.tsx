@@ -3,10 +3,7 @@ import { motion } from "motion/react";
 const BACK_ICON = "M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z";
 const PLAY_ICON = "M8 5v14l11-7z";
 
-const VIDEO_THUMB = new URL(
-  "../../imports/Home/d16ed43e9a26a54b90aa8c6689570826e50d93c4.png",
-  import.meta.url
-).href;
+const VIDEO_THUMB = require('../../assets/0228c1ba1abcca1af97143dd25085f9b13a73348.png');
 
 interface Props {
   onBack: () => void;

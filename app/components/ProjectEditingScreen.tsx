@@ -44,10 +44,7 @@ const CROP_4_5 = "M6 2C4.34 2 3 3.34 3 5v14c0 1.66 1.34 3 3 3h12c1.66 0 3-1.34 3
 const CROP_16_9 = "M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z";
 const CROP_9_16 = "M16 2H8C4.69 2 2 4.69 2 8v8c0 3.31 2.69 6 6 6h8c3.31 0 6-2.69 6-6V8c0-3.31-2.69-6-6-6zm-4 13.5v-7l4 2.5-4 2.5z";
 
-const VIDEO_THUMB = new URL(
-  "../../imports/Home/d16ed43e9a26a54b90aa8c6689570826e50d93c4.png",
-  import.meta.url
-).href;
+const VIDEO_THUMB = require('../../assets/0228c1ba1abcca1af97143dd25085f9b13a73348.png');
 const COVER_THUMB = new URL(
   "../../imports/Projects/d16ed43e9a26a54b90aa8c6689570826e50d93c4.png",
   import.meta.url
@@ -313,7 +310,7 @@ export function ProjectEditingScreen({ onBack, onExport, onNavigateVersionHistor
 
         {activeTool !== "flip" && activeTool !== "crop" && activeTool !== "speed" && !selectedCommentId && (
           <button onClick={onNavigateAi} className="absolute right-[24px] bottom-[24px] w-[56px] h-[56px] rounded-[16px] bg-white shadow-[0_4px_16px_rgba(255,255,255,0.2)] flex items-center justify-center z-20 active:scale-95 transition-transform overflow-hidden">
-             <Sparkles size={28} color="black" fill="black" />
+             <img src={require("../../imports/ProjectEditing/ai-sparkle.png")} alt="AI" className="w-[28px] h-[28px] object-contain" />
           </button>
         )}
 

@@ -95,7 +95,7 @@ function Bg() {
         <svg className="block size-full" fill="none" height="96.0087" preserveAspectRatio="none" viewBox="0 0 97.6911 96.0087" width="97.6911">
           <g id="Bg">
             <foreignObject height="110.424" width="110.364" x="-4.72007" y="-5.65783">
-              <div style={{ backdropFilter: "blur(6.5px)", clipPath: "url(#bgblur_0_0_56_clip_path)", height: "100%", width: "100%" }} xmlns="http://www.w3.org/1999/xhtml" />
+              <div style={{ backdropFilter: "blur(6.5px)", clipPath: "url(#bgblur_0_0_56_clip_path)", height: "100%", width: "100%" }} />
             </foreignObject>
             <path d={svgPaths.p32510d00} fill="url(#paint0_linear_0_56)" id="Fill 1" data-figma-bg-blur-radius="13" />
             <g filter="url(#filter1_f_0_56)" id="Message">
@@ -168,7 +168,7 @@ function Icon() {
         <div className="absolute inset-[-1.32%]">
           <svg className="block size-full" fill="none" height="77.8519" preserveAspectRatio="none" viewBox="0 0 77.7968 77.8519" width="77.7968">
             <foreignObject height="107.852" width="107.797" x="-15" y="-15">
-              <div style={{ backdropFilter: "blur(7.5px)", clipPath: "url(#bgblur_0_0_61_clip_path)", height: "100%", width: "100%" }} xmlns="http://www.w3.org/1999/xhtml" />
+              <div style={{ backdropFilter: "blur(7.5px)", clipPath: "url(#bgblur_0_0_61_clip_path)", height: "100%", width: "100%" }} />
             </foreignObject>
             <g id="Fill 1" data-figma-bg-blur-radius="15">
               <mask fill="black" height="78" id="path-1-outside-1_0_61" maskUnits="userSpaceOnUse" width="78" x="0" y="0">
@@ -199,9 +199,8 @@ function Icon() {
 
 function Arrow() {
   return (
-    <div className="absolute contents inset-0" data-name="Arrow">
-      <Bg />
-      <Icon />
+    <div className="absolute inset-0" data-name="Arrow">
+      <img src="/assets/mic.png" alt="Microphone" className="size-full object-contain" />
     </div>
   );
 }
@@ -291,7 +290,7 @@ function ButtonContainer() {
 
 function Content() {
   return (
-    <div className="content-stretch flex flex-[1_0_0] flex-col gap-[24px] items-center justify-center min-h-px pb-[36px] px-[24px] relative w-full" data-name="Content">
+    <div className="content-stretch flex flex-[1_0_0] flex-col gap-[24px] items-center justify-center min-h-px pb-[24px] px-[24px] relative w-full" data-name="Content">
       <div className="relative shrink-0 w-full">
         <div className="flex flex-row justify-center size-full">
           <div className="content-stretch flex items-start justify-between py-[6px] relative size-full">

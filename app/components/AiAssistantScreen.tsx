@@ -42,10 +42,7 @@ const SEND_UP_ICON = "M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8
 const PLAY_ICON = "M8 5v14l11-7z";
 const CHECK_ICON = "M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z";
 
-const VIDEO_THUMB = new URL(
-  "../../imports/Home/d16ed43e9a26a54b90aa8c6689570826e50d93c4.png",
-  import.meta.url
-).href;
+const VIDEO_THUMB = require('../../assets/0228c1ba1abcca1af97143dd25085f9b13a73348.png');
 
 const BG_IMAGE = new URL(
   "../../imports/AIAssistant/bg.png",

@@ -3,89 +3,7 @@ import svgPaths from "./svg-moclycujr4";
 function ProfileImageIcon({ className }: { className?: string }) {
   return (
     <div className={className || "h-[100px] relative w-[103px]"} data-name="Profile Image Icon">
-      <div className="absolute contents inset-0" data-name="Gallery">
-        <div className="absolute inset-[0_12.15%_7%_0]" data-name="Bg">
-          <div className="absolute inset-[-3.55%_-6.42%_-4.25%_-5.76%]">
-            <svg className="block size-full" fill="none" height="100.258" preserveAspectRatio="none" viewBox="0 0 101.505 100.258" width="101.505">
-              <g id="Bg">
-                <path d={svgPaths.p331f3000} fill="url(#paint0_linear_0_49)" id="Fill 1" />
-                <g filter="url(#filter0_f_0_49)" id="Fill 2">
-                  <path d={svgPaths.pc6c0c00} fill="#0062FF" fillOpacity="0.5" />
-                </g>
-              </g>
-              <defs>
-                <filter colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="91.6578" id="filter0_f_0_49" width="93.0247" x="4.2402" y="4.30014">
-                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                  <feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape" />
-                  <feGaussianBlur result="effect1_foregroundBlur_0_49" stdDeviation="9.5" />
-                </filter>
-                <linearGradient gradientUnits="userSpaceOnUse" id="paint0_linear_0_49" x1="10.2769" x2="99.9509" y1="20.9952" y2="51.0028">
-                  <stop stopColor="#39AFFD" />
-                  <stop offset="1" stopColor="#3A76FF" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-        </div>
-        <div className="absolute inset-[21.67%_0_0_24.35%]" data-name="Icon">
-          <div className="absolute inset-[-1.28%_-9.62%_-9.52%_-1.28%]">
-            <svg className="block size-full" fill="none" height="86.7806" preserveAspectRatio="none" viewBox="0 0 86.4184 86.7806" width="86.4184">
-              <g id="Icon">
-                <foreignObject height="128.327" width="127.924" x="-24" y="-24">
-                  <div style={{ backdropFilter: "blur(12px)", clipPath: "url(#bgblur_0_0_64_clip_path)", height: "100%", width: "100%" }} xmlns="http://www.w3.org/1999/xhtml" />
-                </foreignObject>
-                <g id="Fill 1" data-figma-bg-blur-radius="24">
-                  <mask fill="black" height="81" id="path-1-outside-1_0_64" maskUnits="userSpaceOnUse" width="80" x="0" y="0">
-                    <rect fill="white" height="81" width="80" />
-                    <path d={svgPaths.p20e2400} />
-                  </mask>
-                  <path d={svgPaths.p20e2400} fill="#3EA0FE" fillOpacity="0.35" />
-                  <path d={svgPaths.p185bb200} fill="url(#paint0_linear_0_64)" mask="url(#path-1-outside-1_0_64)" />
-                </g>
-                <foreignObject height="85.0527" width="88.6816" x="-2.26317" y="1.72784">
-                  <div style={{ backdropFilter: "blur(7.5px)", clipPath: "url(#bgblur_1_0_64_clip_path)", height: "100%", width: "100%" }} xmlns="http://www.w3.org/1999/xhtml" />
-                </foreignObject>
-                <g filter="url(#filter1_d_0_64)" id="Combined Shape" data-figma-bg-blur-radius="15">
-                  <mask fill="white" id="path-3-inside-2_0_64">
-                    <path d={svgPaths.p7b16200} />
-                  </mask>
-                  <path d={svgPaths.p7b16200} fill="url(#paint1_linear_0_64)" />
-                  <path d={svgPaths.p311b6980} fill="url(#paint2_linear_0_64)" fillOpacity="0.5" mask="url(#path-3-inside-2_0_64)" />
-                </g>
-              </g>
-              <defs>
-                <clipPath id="bgblur_0_0_64_clip_path" transform="translate(24 24)">
-                  <path d={svgPaths.p20e2400} />
-                </clipPath>
-                <filter colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="85.0527" id="filter1_d_0_64" width="88.6816" x="-2.26317" y="1.72784">
-                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix in="SourceAlpha" result="hardAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
-                  <feOffset dx="5" dy="5" />
-                  <feGaussianBlur stdDeviation="5" />
-                  <feColorMatrix type="matrix" values="0 0 0 0 0.15375 0 0 0 0 0.522433 0 0 0 0 0.9 0 0 0 0.5 0" />
-                  <feBlend in2="BackgroundImageFix" mode="normal" result="effect1_dropShadow_0_64" />
-                  <feBlend in="SourceGraphic" in2="effect1_dropShadow_0_64" mode="normal" result="shape" />
-                </filter>
-                <clipPath id="bgblur_1_0_64_clip_path" transform="translate(2.26317 -1.72784)">
-                  <path d={svgPaths.p7b16200} />
-                </clipPath>
-                <linearGradient gradientUnits="userSpaceOnUse" id="paint0_linear_0_64" x1="13.4043" x2="63.422" y1="10.1252" y2="71.755">
-                  <stop stopColor="white" stopOpacity="0.25" />
-                  <stop offset="1" stopColor="white" stopOpacity="0.06" />
-                </linearGradient>
-                <linearGradient gradientUnits="userSpaceOnUse" id="paint1_linear_0_64" x1="67.258" x2="1.90166" y1="26.6693" y2="28.9406">
-                  <stop stopColor="white" />
-                  <stop offset="1" stopColor="white" stopOpacity="0.2" />
-                </linearGradient>
-                <linearGradient gradientUnits="userSpaceOnUse" id="paint2_linear_0_64" x1="19.0581" x2="68.8867" y1="35.1954" y2="35.4886">
-                  <stop stopColor="white" />
-                  <stop offset="1" stopColor="white" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-        </div>
-      </div>
+      <img src="/assets/gallery.png" alt="Gallery" className="size-full object-contain" />
     </div>
   );
 }
@@ -255,7 +173,7 @@ function ButtonContainer() {
 
 function Content() {
   return (
-    <div className="content-stretch flex flex-[1_0_0] flex-col gap-[24px] items-center justify-center min-h-px pb-[36px] px-[24px] relative w-full" data-name="Content">
+    <div className="content-stretch flex flex-[1_0_0] flex-col gap-[24px] items-center justify-center min-h-px pb-[24px] px-[24px] relative w-full" data-name="Content">
       <div className="relative shrink-0 w-full">
         <div className="flex flex-row justify-center size-full">
           <div className="content-stretch flex items-start justify-between py-[6px] relative size-full">

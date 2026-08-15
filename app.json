@@ -4,7 +4,7 @@
     "slug": "CardboardMobile",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./public/icon.svg",
     "scheme": "cardboardmobile",
     "userInterfaceStyle": "automatic",
     "ios": {
@@ -21,7 +21,11 @@
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "name": "Cardboard",
+      "shortName": "Cardboard",
+      "themeColor": "#000000",
+      "backgroundColor": "#000000",
+      "display": "standalone"
     },
     "plugins": [
       "expo-router",

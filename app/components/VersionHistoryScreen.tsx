@@ -3,10 +3,7 @@ import { motion } from "motion/react";
 const BACK_ICON = "M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z";
 const CHEVRON_RIGHT = "M9 18l6-6-6-6-1.41 1.41L12.17 12l-4.58 4.59L9 18z";
 
-const THUMBNAIL_URL = new URL(
-  "../../imports/Home/d16ed43e9a26a54b90aa8c6689570826e50d93c4.png",
-  import.meta.url
-).href;
+const THUMBNAIL_URL = require('../../assets/122c10752004e8759762513f65ca6d9cfb3c6e06.png');
 
 interface Props {
   onBack: () => void;
