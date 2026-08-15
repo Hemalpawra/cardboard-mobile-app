@@ -33,22 +33,7 @@ export function UploadingScreen({ onComplete }: Props) {
       transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <div className="relative size-full overflow-hidden">
-        <UploadingImport />
-
-        {/* Dynamic progress overlay */}
-        <div className="absolute top-[415px] left-[24px] right-[24px] z-20 flex flex-col gap-[8px]">
-          <div className="flex justify-between text-[#aeaeb5] text-[20px] font-medium" style={{ fontFamily: "Inter, sans-serif" }}>
-            <span>Uploading...</span>
-            <span className="tabular-nums">{progress}%</span>
-          </div>
-          <div className="h-[8px] bg-[#32323a] rounded-[4px] overflow-hidden w-full">
-            <motion.div
-              className="h-full bg-[#0088FF] rounded-[4px]"
-              animate={{ width: `${progress}%` }}
-              transition={{ duration: 0.3 }}
-            />
-          </div>
-        </div>
+        <UploadingImport progress={progress} />
       </div>
     </motion.div>
   );

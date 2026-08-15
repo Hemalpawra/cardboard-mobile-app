@@ -28,34 +28,10 @@ export function ProjectsScreen({
     >
       {/* Scrollable content area (bottom nav NOT inside scroll) */}
       <div className="flex-1 min-h-0 overflow-y-auto scroll-smooth-ios relative">
-        <ProjectsImport />
-
-        {/* Click overlay for "New Project" card */}
-        <button
-          onClick={onNewProject}
-          className="absolute top-[200px] left-[24px] w-[calc(50%-28px)] h-[160px] z-20 opacity-0 cursor-pointer"
-          aria-label="Create New Project"
-        />
-
-        {/* Click overlay for existing projects (first row right) */}
-        <button
-          onClick={onSelectProject}
-          className="absolute top-[200px] right-[24px] w-[calc(50%-28px)] h-[160px] z-20 opacity-0 cursor-pointer"
-          aria-label="Select Project"
-        />
-
-        {/* Click overlay for existing projects (second row) */}
-        <button
-          onClick={onSelectProject}
-          className="absolute top-[380px] left-[24px] right-[24px] h-[160px] z-20 opacity-0 cursor-pointer"
-          aria-label="Select Project"
-        />
-
-        {/* Click overlay for Search icon/bar */}
-        <button
-          onClick={onSearch}
-          className="absolute top-[80px] right-[24px] w-[24px] h-[24px] z-20 opacity-0 cursor-pointer"
-          aria-label="Search Projects"
+        <ProjectsImport
+          onNewProject={onNewProject}
+          onSelectProject={onSelectProject}
+          onSearch={onSearch}
         />
       </div>
 
