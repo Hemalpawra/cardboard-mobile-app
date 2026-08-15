@@ -9,6 +9,7 @@ const PLAY_ICON = "M8 5v14l11-7z";
 const UNDO_ICON = "M12.5 8c-2.65 0-5.05.99-6.9 2.6L2 7v9h9l-3.62-3.62c1.39-1.16 3.16-1.88 5.12-1.88 3.54 0 6.55 2.31 7.6 5.5l2.37-.78C21.08 11.03 17.15 8 12.5 8z";
 const REDO_ICON = "M11.5 8C6.85 8 2.92 11.03 1.54 15.22l2.37.78C4.95 12.81 7.96 10.5 11.5 10.5c1.96 0 3.73.72 5.12 1.88L13 16h9V7l-3.6 3.6C16.55 8.99 14.15 8 11.5 8z";
 const CHAT_DISABLE_ICON = "M1.39 4.22l2.27 2.27A2 2 0 003 8v8c0 1.1.9 2 2 2h14v3l-2.6-2.6 1.41-1.41L21.19 21.19zM5 16V8.12l7.88 7.88H5zM20 2H4.17l2 2H20v11.83l2 2V4c0-1.1-.9-2-2-2z";
+const CHAT_ICON = "M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z";
 const FULLSCREEN_ICON = "M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z";
 
 const CANVAS_ICON = "M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"; // fallback
@@ -55,7 +56,10 @@ interface Props {
   onNavigateVersionHistory?: () => void;
   onNavigateCollaboration?: () => void;
   onNavigateAi?: () => void;
+  onShareProject?: () => void;
+  onOpenCommentThread?: () => void;
 }
+
 
 const TOOLS = [
   { id: "canvas", icon: CANVAS_ICON, label: "Canvas" },
@@ -288,7 +292,7 @@ export function ProjectEditingScreen({ onBack, onExport, onNavigateVersionHistor
               <div className="text-white text-[16px] font-medium leading-[1.4] mb-[20px] pr-[24px]">{comments.find(c => c.id === selectedCommentId)?.text}</div>
               <div className="flex gap-[12px]">
                 <button onClick={() => setSelectedCommentId(null)} className="flex-1 h-[48px] rounded-[24px] bg-[#2a2a35] text-white font-medium flex items-center justify-center active:bg-[#353540] transition-colors">Cancel</button>
-                <button onClick={() => { setSelectedCommentId(null); onOpenCommentThread(); }} className="flex-1 h-[48px] rounded-[24px] bg-white text-black font-semibold flex items-center justify-center active:bg-gray-200 transition-colors">Comment</button>
+                <button onClick={() => { setSelectedCommentId(null); onOpenCommentThread?.(); }} className="flex-1 h-[48px] rounded-[24px] bg-white text-black font-semibold flex items-center justify-center active:bg-gray-200 transition-colors">Comment</button>
               </div>
             </motion.div>
           )}
