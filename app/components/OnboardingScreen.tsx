@@ -3,22 +3,22 @@ import { motion, AnimatePresence } from "motion/react";
 import { StatusBar } from "./StatusBar";
 
 // Welcome-1 images
-import imgLandscape from "figma:asset/241d465635db6796da8cdec309b5098fe1243602.png";
-import imgPortrait from "figma:asset/0228c1ba1abcca1af97143dd25085f9b13a73348.png";
-import imgMain from "figma:asset/d16ed43e9a26a54b90aa8c6689570826e50d93c4.png";
+import imgLandscape from "../../assets/241d465635db6796da8cdec309b5098fe1243602.png";
+import imgPortrait from "../../assets/0228c1ba1abcca1af97143dd25085f9b13a73348.png";
+import imgMain from "../../assets/d16ed43e9a26a54b90aa8c6689570826e50d93c4.png";
 
 // Collaboration avatars
-import imgSarah from "figma:asset/7fabba66b3b4dcbc5062c03ace505e17670046e6.png";
-import imgAlex from "figma:asset/b4b21f97534ca6e1f6b6d44331abf2c568065fa3.png";
-import imgJordan from "figma:asset/e2f54ea377360597461fe5b2f652e40c6e0eb2e5.png";
-import imgTaylor from "figma:asset/9c3fb3ab933ec3fcc1824cb87148aca51753330c.png";
+import imgSarah from "../../assets/7fabba66b3b4dcbc5062c03ace505e17670046e6.png";
+import imgAlex from "../../assets/b4b21f97534ca6e1f6b6d44331abf2c568065fa3.png";
+import imgJordan from "../../assets/e2f54ea377360597461fe5b2f652e40c6e0eb2e5.png";
+import imgTaylor from "../../assets/9c3fb3ab933ec3fcc1824cb87148aca51753330c.png";
 
 // AiBRoll images
-import imgBroll0 from "figma:asset/377151205f4bf6fb72d05bc867fbb9fd68b8cb5b.png";
-import imgBroll1 from "figma:asset/1a96c9030a85cf3cebd58284eaadfeb1b710f90c.png";
-import imgBroll2 from "figma:asset/122c10752004e8759762513f65ca6d9cfb3c6e06.png";
-import imgBroll3 from "figma:asset/0228c1ba1abcca1af97143dd25085f9b13a73348.png";
-import imgBroll4 from "figma:asset/994380c74aa5b5ae60fb4cefa21fc7272d1e5b68.png";
+import imgBroll0 from "../../assets/377151205f4bf6fb72d05bc867fbb9fd68b8cb5b.png";
+import imgBroll1 from "../../assets/1a96c9030a85cf3cebd58284eaadfeb1b710f90c.png";
+import imgBroll2 from "../../assets/122c10752004e8759762513f65ca6d9cfb3c6e06.png";
+import imgBroll3 from "../../assets/0228c1ba1abcca1af97143dd25085f9b13a73348.png";
+import imgBroll4 from "../../assets/994380c74aa5b5ae60fb4cefa21fc7272d1e5b68.png";
 
 // Shared skip chevron path
 const SKIP_CHEVRON = "M6 2.8L1.4 7.4L0 6L6 0L12 6L10.6 7.4L6 2.8Z";
