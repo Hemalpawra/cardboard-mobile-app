@@ -20,13 +20,8 @@ const FLIP_ICON = "M15 21h2v-2h-2v2zm4-12h2V7h-2v2zM3 5v14c0 1.1.9 2 2 2h4v-2H5V
 const CROP_ICON = "M17 15h2V7c0-1.1-.9-2-2-2H9v2h8v8zM7 17V1H5v4H1v2h4v10c0 1.1.9 2 2 2h10v4h2v-4h4v-2H7z";
 const SPEED_ICON = "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm4.25-12.75L11 13V7h2v4.25l3.66-2.11-.41-.89z";
 
-const AI_SPARKLE_IMG = new URL(
-  "../../imports/ProjectEditing/ai-sparkle.png",
-  import.meta.url
-).href;
-
-const SPARKLE_LARGE = "M11.5 21C11.5 21 11.5 13.5 3 12.5C11.5 11.5 11.5 4 11.5 4C11.5 4 11.5 11.5 20 12.5C11.5 13.5 11.5 21 11.5 21Z";
-const SPARKLE_SMALL = "M19 10C19 10 19 7 15.5 6.5C19 6 19 3 19 3C19 3 19 6 22.5 6.5C19 7 19 10 19 10Z";
+const AI_SPARKLE_STAR_LARGE = "M27.5027 14.3573C21.6893 12.8587 17.1467 8.316 15.648 2.50267L15.0027 0L14.3573 2.50267C12.8587 8.316 8.316 12.8587 2.50267 14.3573L0 15.0027L2.50267 15.6493C8.316 17.148 12.8587 21.6907 14.3573 27.5027L15.0027 30.0067L15.648 27.5027C17.1467 21.6907 21.6893 17.148 27.5027 15.6493L30.0053 15.0027L27.5027 14.3573Z";
+const AI_SPARKLE_STAR_SMALL = "M24.004 9.33255C24.004 7.78322 25.7027 6.00055 27.336 6.00055C25.764 6.00055 24.004 4.19921 24.004 2.66988C24.004 4.19921 22.26 6.00055 20.6733 6.00055C22.2 6.00055 24.004 7.77388 24.004 9.33255Z";
 const PENCIL_ICON = "M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z";
 
 const ROTATE_LEFT = "M9 4H7C5.34315 4 4 5.34315 4 7V9M4 7L1 10M4 7L7 10M15 4H17C18.6569 4 20 5.34315 20 7V17C20 18.6569 18.6569 20 17 20H7C5.34315 20 4 18.6569 4 17V15";
@@ -309,8 +304,15 @@ export function ProjectEditingScreen({ onBack, onExport, onNavigateVersionHistor
         )}
 
         {activeTool !== "flip" && activeTool !== "crop" && activeTool !== "speed" && !selectedCommentId && (
-          <button onClick={onNavigateAi} className="absolute right-[24px] bottom-[24px] w-[56px] h-[56px] rounded-[16px] bg-white shadow-[0_4px_16px_rgba(255,255,255,0.2)] flex items-center justify-center z-20 active:scale-95 transition-transform overflow-hidden">
-             <img src={require("../../imports/ProjectEditing/ai-sparkle.png")} alt="AI" className="w-[28px] h-[28px] object-contain" />
+          <button
+            onClick={onNavigateAi}
+            className="absolute right-[24px] bottom-[24px] w-[56px] h-[56px] rounded-[16px] bg-white shadow-[0_4px_16px_rgba(255,255,255,0.2)] flex items-center justify-center z-20 active:scale-95 transition-transform overflow-hidden cursor-pointer"
+            aria-label="AI Assistant"
+          >
+            <svg className="w-[28px] h-[28px]" viewBox="0 0 30.0053 30.0067" fill="none">
+              <path clipRule="evenodd" d={AI_SPARKLE_STAR_LARGE} fill="#0D0D0F" fillRule="evenodd" />
+              <path clipRule="evenodd" d={AI_SPARKLE_STAR_SMALL} fill="#0D0D0F" fillRule="evenodd" />
+            </svg>
           </button>
         )}
 
