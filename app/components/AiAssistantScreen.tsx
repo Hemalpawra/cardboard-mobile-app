@@ -44,10 +44,7 @@ const CHECK_ICON = "M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z";
 
 const VIDEO_THUMB = require('../../assets/0228c1ba1abcca1af97143dd25085f9b13a73348.png');
 
-const BG_IMAGE = new URL(
-  "../../imports/AIAssistant/bg.png",
-  import.meta.url
-).href;
+import BG_IMAGE from "../imports/AIAssistant/bg.png";
 
 function fmt(d: Date) {
   return d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true });
