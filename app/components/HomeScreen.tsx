@@ -95,6 +95,7 @@ export function HomeScreen({
   onSelectCollaboration,
   onSelectProject,
   onNotifications,
+  onNavigateToComment,
 }: Props) {
   return (
     <motion.div
@@ -211,8 +212,8 @@ export function HomeScreen({
           <h2 className="text-white text-[18px] font-bold mb-[16px]" style={{ fontFamily: "Inter, sans-serif" }}>Needs Your Attention</h2>
           <div className="flex flex-col gap-[12px]">
             {/* Item 1 */}
-            <button onClick={onSelectCollaboration} className="flex items-center gap-[12px] w-full bg-[#141416] rounded-[16px] p-[16px] active:scale-[0.98] transition-transform text-left">
-              <div className="w-[44px] h-[44px] rounded-full bg-[#E4E4E7] shrink-0" />
+            <button onClick={onNavigateToComment || onSelectCollaboration} className="flex items-center gap-[12px] w-full bg-[#141416] rounded-[16px] p-[16px] active:scale-[0.98] transition-transform text-left">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Alex" className="w-[44px] h-[44px] rounded-full shrink-0 object-cover" />
               <div className="flex flex-col flex-1">
                 <span className="text-white text-[15px] font-bold" style={{ fontFamily: "Inter, sans-serif" }}>Alex Commented</span>
                 <span className="text-[#A3A3A3] text-[13px]" style={{ fontFamily: "Inter, sans-serif" }}>Product launch.mp4</span>
@@ -225,7 +226,7 @@ export function HomeScreen({
 
             {/* Item 2 */}
             <button onClick={onSelectCollaboration} className="flex items-center gap-[12px] w-full bg-[#141416] rounded-[16px] p-[16px] active:scale-[0.98] transition-transform text-left">
-              <div className="w-[44px] h-[44px] rounded-full bg-[#E4E4E7] shrink-0" />
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jamie" className="w-[44px] h-[44px] rounded-full shrink-0 object-cover" />
               <div className="flex flex-col flex-1">
                 <span className="text-white text-[15px] font-bold" style={{ fontFamily: "Inter, sans-serif" }}>Jamie Liked</span>
                 <span className="text-[#A3A3A3] text-[13px]" style={{ fontFamily: "Inter, sans-serif" }}>Design Proposal.docx</span>
@@ -238,7 +239,7 @@ export function HomeScreen({
 
             {/* Item 3 */}
             <button onClick={onSelectCollaboration} className="flex items-center gap-[12px] w-full bg-[#141416] rounded-[16px] p-[16px] active:scale-[0.98] transition-transform text-left">
-              <div className="w-[44px] h-[44px] rounded-full bg-[#E4E4E7] shrink-0" />
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Taylor" className="w-[44px] h-[44px] rounded-full shrink-0 object-cover" />
               <div className="flex flex-col flex-1">
                 <span className="text-white text-[15px] font-bold" style={{ fontFamily: "Inter, sans-serif" }}>Taylor Assigned</span>
                 <span className="text-[#A3A3A3] text-[13px]" style={{ fontFamily: "Inter, sans-serif" }}>Wireframes.png</span>

@@ -67,11 +67,17 @@ type AppScreen =
 export default function App() {
   const [screen, setScreenState] = useState<AppScreen>("splash");
   const [previousScreen, setPreviousScreen] = useState<AppScreen>("home");
+  const [initialCommentId, setInitialCommentId] = useState<number | null>(null);
   const email = "john@gmail.com";
 
   const setScreen = (newScreen: AppScreen) => {
     setPreviousScreen(screen);
     setScreenState(newScreen);
+  };
+
+  const handleNavigateToComment = () => {
+    setInitialCommentId(3); // ID 3 corresponds to "Perfect timing" comment
+    setScreen("project-editing");
   };
 
   useEffect(() => {
@@ -212,8 +218,12 @@ export default function App() {
               onNavigateAi={() => setScreen("ai-assistant")}
               onNavigateProjects={() => setScreen("projects")}
               onSelectCollaboration={() => setScreen("notifications")}
-              onSelectProject={() => setScreen("project-editing")}
+              onSelectProject={() => {
+                setInitialCommentId(null);
+                setScreen("project-editing");
+              }}
               onNotifications={() => setScreen("notifications")}
+              onNavigateToComment={handleNavigateToComment}
             />
           )}
 
@@ -281,13 +291,17 @@ export default function App() {
           {screen === "project-editing" && (
             <ProjectEditingScreen
               key="project-editing"
-              onBack={() => setScreenState(previousScreen === "review-before" || previousScreen === "review-after" ? previousScreen : "home")}
+              onBack={() => {
+                setInitialCommentId(null);
+                setScreenState(previousScreen === "review-before" || previousScreen === "review-after" ? previousScreen : "home");
+              }}
               onExport={() => setScreen("project-export")}
               onNavigateVersionHistory={() => setScreen("version-history")}
               onNavigateCollaboration={() => setScreen("collaboration")}
               onNavigateAi={() => setScreen("ai-assistant")}
               onShareProject={() => setScreen("share-project")}
               onOpenCommentThread={() => setScreen("comment-thread")}
+              initialCommentId={initialCommentId}
             />
           )}
 

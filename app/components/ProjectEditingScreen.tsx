@@ -19,6 +19,11 @@ const FLIP_ICON = "M15 21h2v-2h-2v2zm4-12h2V7h-2v2zM3 5v14c0 1.1.9 2 2 2h4v-2H5V
 const CROP_ICON = "M17 15h2V7c0-1.1-.9-2-2-2H9v2h8v8zM7 17V1H5v4H1v2h4v10c0 1.1.9 2 2 2h10v4h2v-4h4v-2H7z";
 const SPEED_ICON = "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm4.25-12.75L11 13V7h2v4.25l3.66-2.11-.41-.89z";
 
+const AI_SPARKLE_IMG = new URL(
+  "../../imports/ProjectEditing/ai-sparkle.png",
+  import.meta.url
+).href;
+
 const SPARKLE_LARGE = "M11.5 21C11.5 21 11.5 13.5 3 12.5C11.5 11.5 11.5 4 11.5 4C11.5 4 11.5 11.5 20 12.5C11.5 13.5 11.5 21 11.5 21Z";
 const SPARKLE_SMALL = "M19 10C19 10 19 7 15.5 6.5C19 6 19 3 19 3C19 3 19 6 22.5 6.5C19 7 19 10 19 10Z";
 const PENCIL_ICON = "M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z";
@@ -58,6 +63,7 @@ interface Props {
   onNavigateAi?: () => void;
   onShareProject?: () => void;
   onOpenCommentThread?: () => void;
+  initialCommentId?: number | null;
 }
 
 
@@ -70,7 +76,7 @@ const TOOLS = [
   { id: "speed", icon: SPEED_ICON, label: "Speed" },
 ];
 
-export function ProjectEditingScreen({ onBack, onExport, onNavigateVersionHistory, onNavigateCollaboration, onNavigateAi, onShareProject, onOpenCommentThread }: Props) {
+export function ProjectEditingScreen({ onBack, onExport, onNavigateVersionHistory, onNavigateCollaboration, onNavigateAi, onShareProject, onOpenCommentThread, initialCommentId }: Props) {
   const [activeTool, setActiveTool] = useState<Tool>(null);
   const [rotation, setRotation] = useState(0);
   const [flipX, setFlipX] = useState(1);
@@ -82,8 +88,16 @@ export function ProjectEditingScreen({ onBack, onExport, onNavigateVersionHistor
   const [cropStart, setCropStart] = useState({ x: 0, y: 0, box: cropBox });
   const [selectedRatio, setSelectedRatio] = useState("Original");
   const trimTrackRef = useRef<HTMLDivElement>(null);
-  const [trimHandles, setTrimHandles] = useState({ start: 10, end: 90 });
+  const [trimHandles, setTrimHandles] = useState({ start: 20, end: 80 });
   const [activeDrag, setActiveDrag] = useState<"start" | "end" | null>(null);
+
+  useEffect(() => {
+    if (initialCommentId) {
+      setSelectedCommentId(initialCommentId);
+      setShowComments(true);
+    }
+  }, [initialCommentId]);
+
   const speedDialRef = useRef<HTMLDivElement>(null);
   const [speed, setSpeed] = useState(1);
   const [showComments, setShowComments] = useState(false);
@@ -207,7 +221,7 @@ export function ProjectEditingScreen({ onBack, onExport, onNavigateVersionHistor
         </div>
         <div className="flex items-center gap-[20px]">
           {onNavigateVersionHistory && <button onClick={onNavigateVersionHistory} className="active:opacity-60 transition-opacity"><svg fill="currentColor" height="24" viewBox="0 0 24 24" width="24"><path d={HISTORY_ICON} fill="#aeaeb5" /></svg></button>}
-          {onNavigateCollaboration && <button onClick={onNavigateCollaboration} className="active:opacity-60 transition-opacity"><svg fill="currentColor" height="24" viewBox="0 0 24 24" width="24"><path d={SHARE_ICON} fill="#aeaeb5" /></svg></button>}
+          <button onClick={onShareProject} className="active:opacity-60 transition-opacity"><svg fill="currentColor" height="24" viewBox="0 0 24 24" width="24"><path d={SHARE_ICON} fill="#aeaeb5" /></svg></button>
           <button onClick={onExport} className="h-[32px] px-[16px] bg-white text-black font-semibold rounded-[8px] text-[14px] active:scale-95 transition-transform">Export</button>
         </div>
       </div>
@@ -261,6 +275,23 @@ export function ProjectEditingScreen({ onBack, onExport, onNavigateVersionHistor
                   )}
                 </div>
              </div>
+             {!selectedCommentId && (
+               <>
+                 <div className="flex gap-[4px] h-[40px] pl-[64px]">
+                    <div className="relative flex-1 h-full rounded-[8px] overflow-hidden bg-gradient-to-r from-[#0a2316] to-[#123924] flex items-center pl-[20px]">
+                       <span className="text-white text-[13px] font-medium z-10">Audio</span>
+                       <svg className="absolute inset-0 w-full h-full opacity-30 pointer-events-none" preserveAspectRatio="none" viewBox="0 0 200 40">
+                          <path d="M0,20 Q10,0 20,20 T40,20 T60,20 T80,20 T100,20 T120,20 T140,20 T160,20 T180,20 T200,20" fill="none" stroke="#2ecca6" strokeWidth="2" />
+                       </svg>
+                    </div>
+                 </div>
+                 <div className="flex gap-[4px] h-[40px] pl-[64px]">
+                    <div className="relative flex-1 h-full rounded-[8px] overflow-hidden bg-[#2d251c] flex items-center pl-[20px]">
+                       <span className="text-white text-[13px] font-medium">Effects</span>
+                    </div>
+                 </div>
+               </>
+             )}
           </div>
         </div>
 
@@ -278,20 +309,22 @@ export function ProjectEditingScreen({ onBack, onExport, onNavigateVersionHistor
         )}
 
         {activeTool !== "flip" && activeTool !== "crop" && activeTool !== "speed" && !selectedCommentId && (
-          <button onClick={onNavigateAi} className="absolute right-[24px] bottom-[24px] w-[56px] h-[56px] rounded-[16px] bg-white shadow-[0_4px_16px_rgba(255,255,255,0.2)] flex items-center justify-center z-20 active:scale-95 transition-transform">
-             <svg fill="none" height="32" viewBox="0 0 24 24" width="32"><path d={SPARKLE_SMALL} fill="black" /></svg>
+          <button onClick={onNavigateAi} className="absolute right-[24px] bottom-[24px] w-[56px] h-[56px] rounded-[16px] bg-white shadow-[0_4px_16px_rgba(255,255,255,0.2)] flex items-center justify-center z-20 active:scale-95 transition-transform overflow-hidden">
+             <img src={AI_SPARKLE_IMG} alt="AI Sparkle" className="w-[32px] h-[32px] object-contain" />
           </button>
         )}
 
         <AnimatePresence>
           {selectedCommentId && (
-            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 50 }} className="absolute bottom-[24px] left-[20px] right-[20px] bg-[#1a1a21] rounded-[16px] p-[20px] z-50 shadow-2xl">
-              <button onClick={() => setSelectedCommentId(null)} className="absolute top-[16px] right-[16px] w-[24px] h-[24px] flex items-center justify-center active:opacity-60"><svg fill="none" height="16" viewBox="0 0 24 24" width="16"><path d={CLOSE_ICON} fill="#7e7e8f" /></svg></button>
-              <div className="text-[#81a1c1] text-[13px] font-medium mb-[8px]">{comments.find(c => c.id === selectedCommentId)?.time}</div>
-              <div className="text-white text-[16px] font-medium leading-[1.4] mb-[20px] pr-[24px]">{comments.find(c => c.id === selectedCommentId)?.text}</div>
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 50 }} className="absolute bottom-0 left-0 right-0 bg-[#0d0d0f] rounded-t-[32px] p-[16px] pb-[40px] z-50 shadow-2xl">
+              <div className="bg-[#1a1a21] rounded-[16px] p-[20px] relative mb-[16px]">
+                <button onClick={() => setSelectedCommentId(null)} className="absolute top-[20px] right-[20px] w-[24px] h-[24px] flex items-center justify-center active:opacity-60"><svg fill="none" height="16" viewBox="0 0 24 24" width="16"><path d={CLOSE_ICON} fill="white" /></svg></button>
+                <div className="text-[#7e7e8f] text-[14px] font-medium mb-[16px]">{comments.find(c => c.id === selectedCommentId)?.time}</div>
+                <div className="text-white text-[17px] font-medium leading-[1.4] pr-[24px]">{comments.find(c => c.id === selectedCommentId)?.text}</div>
+              </div>
               <div className="flex gap-[12px]">
-                <button onClick={() => setSelectedCommentId(null)} className="flex-1 h-[48px] rounded-[24px] bg-[#2a2a35] text-white font-medium flex items-center justify-center active:bg-[#353540] transition-colors">Cancel</button>
-                <button onClick={() => { setSelectedCommentId(null); onOpenCommentThread?.(); }} className="flex-1 h-[48px] rounded-[24px] bg-white text-black font-semibold flex items-center justify-center active:bg-gray-200 transition-colors">Comment</button>
+                <button onClick={() => setSelectedCommentId(null)} className="flex-1 h-[52px] rounded-[12px] bg-[#1a1a21] text-[#7e7e8f] font-medium text-[16px] flex items-center justify-center active:bg-[#2a2a35] transition-colors">Cancel</button>
+                <button onClick={() => { setSelectedCommentId(null); onOpenCommentThread?.(); }} className="flex-1 h-[52px] rounded-[12px] bg-white text-black font-semibold text-[16px] flex items-center justify-center active:bg-gray-200 transition-colors">Comment</button>
               </div>
             </motion.div>
           )}
@@ -300,7 +333,30 @@ export function ProjectEditingScreen({ onBack, onExport, onNavigateVersionHistor
 
       <div className="shrink-0 bg-[#0d0d0f]">
         <AnimatePresence mode="wait">
-          {activeTool === "flip" || activeTool === "trim" || activeTool === "crop" || activeTool === "speed" ? (
+          {showComments ? (
+            !selectedCommentId ? (
+              <motion.div
+                key="reply-toolbar"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                className="flex items-center px-[20px] pt-[16px] pb-[40px] bg-[#0d0d0f]"
+              >
+                <div className="flex-1 flex items-center bg-[#141416] rounded-[16px] px-[16px] h-[56px] border border-[#2a2a35]">
+                  <input
+                    type="text"
+                    placeholder="Reply"
+                    className="flex-1 bg-transparent text-white text-[15px] placeholder-[#7e7e8f] outline-none"
+                  />
+                  <button className="w-[32px] h-[32px] rounded-full bg-[#2a2a35] flex items-center justify-center ml-[8px] active:opacity-60 transition-opacity">
+                    <svg fill="none" height="16" viewBox="0 0 24 24" width="16">
+                      <path d={UPLOAD_ICON} fill="white" />
+                    </svg>
+                  </button>
+                </div>
+              </motion.div>
+            ) : null
+          ) : activeTool === "flip" || activeTool === "trim" || activeTool === "crop" || activeTool === "speed" ? (
             <motion.div
               key={`${activeTool}-toolbar`}
               initial={{ opacity: 0, y: 20 }}

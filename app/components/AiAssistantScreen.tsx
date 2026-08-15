@@ -47,6 +47,11 @@ const VIDEO_THUMB = new URL(
   import.meta.url
 ).href;
 
+const BG_IMAGE = new URL(
+  "../../imports/AIAssistant/bg.png",
+  import.meta.url
+).href;
+
 function fmt(d: Date) {
   return d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true });
 }
@@ -435,8 +440,9 @@ export function AiAssistantScreen({ onBack }: Props) {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
       style={{
-        background:
-          "radial-gradient(ellipse 140% 60% at 30% 0%, #0B2547 0%, #080C14 55%)",
+        backgroundImage: `url(${BG_IMAGE})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       {/* ── Header ── */}

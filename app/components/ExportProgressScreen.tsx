@@ -104,7 +104,7 @@ export function ExportProgressScreen({ onCancel, onDone }: Props) {
             <div className="mt-auto pb-[40px]">
               <button
                 onClick={onCancel}
-                className="w-full h-[56px] rounded-[28px] bg-white text-black text-[16px] font-semibold active:scale-95 transition-transform"
+                className="w-full h-[56px] rounded-[12px] bg-white text-black text-[16px] font-semibold active:scale-95 transition-transform"
               >
                 Cancel Export
               </button>
@@ -167,7 +167,7 @@ export function ExportProgressScreen({ onCancel, onDone }: Props) {
             <div className="mt-auto pb-[40px]">
               <button
                 onClick={onDone}
-                className="w-full h-[56px] rounded-[28px] bg-white text-black text-[16px] font-semibold active:scale-95 transition-transform"
+                className="w-full h-[56px] rounded-[12px] bg-white text-black text-[16px] font-semibold active:scale-95 transition-transform"
               >
                 Done
               </button>

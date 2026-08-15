@@ -33,12 +33,12 @@ export function SignUpScreen({ onEmailSignUp, onBack }: Props) {
       exit={{ opacity: 0, x: -32 }}
       transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
-      <div className="flex flex-col w-full max-w-[380px] gap-[32px] my-auto py-[16px]">
+      <div className="w-full max-w-[380px] flex-none">
         {/* Back button */}
         {onBack && (
           <button
             onClick={onBack}
-            className="self-start flex items-center justify-center w-[36px] h-[36px] -ml-[6px] active:opacity-60 transition-opacity focus-visible:ring-2 focus-visible:ring-[#0088ff] rounded-full"
+            className="flex items-center justify-center w-[36px] h-[36px] -ml-[6px] active:opacity-60 transition-opacity focus-visible:ring-2 focus-visible:ring-[#0088ff] rounded-full"
             aria-label="Go back"
           >
             <svg fill="none" height="17" viewBox="0 0 20 17.3333" width="20">
@@ -46,8 +46,10 @@ export function SignUpScreen({ onEmailSignUp, onBack }: Props) {
             </svg>
           </button>
         )}
+      </div>
+      <div className="flex flex-col w-full max-w-[380px] gap-[32px] my-auto py-[16px]">
         {/* Header */}
-        <div className="flex flex-col gap-[8px] text-left">
+        <div className="flex flex-col gap-[4px] text-left">
           <p
             className="text-white text-[28px] sm:text-[32px] leading-[1.2] m-0"
             style={{ fontFamily: "Inter, sans-serif", fontWeight: 600 }}

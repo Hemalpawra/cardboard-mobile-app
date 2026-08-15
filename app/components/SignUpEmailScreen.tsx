@@ -33,7 +33,7 @@ export function SignUpEmailScreen({ onBack, onContinue }: Props) {
 
   return (
     <motion.div
-      className="absolute inset-0 bg-[#0d0d0f] flex flex-col"
+      className="absolute top-0 left-0 right-0 h-[100dvh] bg-[#0d0d0f] flex flex-col"
       initial={{ opacity: 0, x: 32 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -32 }}

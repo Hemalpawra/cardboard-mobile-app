@@ -109,7 +109,7 @@ export function ProjectExportScreen({ onBack, onExportStart }: Props) {
         <span className="text-[#7e7e8f] text-[13px] font-medium mb-[16px]">Estimated size : 132 MB</span>
         <button 
           onClick={onExportStart}
-          className="w-full h-[56px] rounded-[28px] bg-white text-black font-semibold text-[16px] flex items-center justify-center active:scale-95 transition-transform"
+          className="w-full h-[56px] rounded-[12px] bg-white text-black font-semibold text-[16px] flex items-center justify-center active:scale-95 transition-transform"
         >
           Export Video
         </button>
