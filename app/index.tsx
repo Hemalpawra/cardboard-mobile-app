@@ -1,3 +1,4 @@
+import "../global.css";
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "motion/react";
 import { SplashScreen } from "./components/SplashScreen";
