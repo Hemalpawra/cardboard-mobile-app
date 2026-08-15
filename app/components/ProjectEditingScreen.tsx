@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { Sparkles, MessageCircleOff, MessageCircleMore } from "lucide-react";
 import { Tool, VideoEditorSubMenu } from "./VideoEditorSubMenu";
 
 const BACK_ICON = "M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z";
@@ -248,7 +249,9 @@ export function ProjectEditingScreen({ onBack, onExport, onNavigateVersionHistor
         <div className="flex items-center gap-[16px] w-[140px] justify-end">
           <button className="active:opacity-60 transition-opacity"><svg fill="none" height="20" viewBox="0 0 24 24" width="20"><path d={UNDO_ICON} fill="white" /></svg></button>
           <button className="active:opacity-60 transition-opacity"><svg fill="none" height="20" viewBox="0 0 24 24" width="20"><path d={REDO_ICON} fill="white" /></svg></button>
-          <button className="active:opacity-60 transition-opacity" onClick={() => setShowComments(!showComments)}><svg fill="none" height="20" viewBox="0 0 24 24" width="20"><path d={showComments ? CHAT_ICON : CHAT_DISABLE_ICON} fill="white" /></svg></button>
+          <button className="active:opacity-60 transition-opacity" onClick={() => setShowComments(!showComments)}>
+            {showComments ? <MessageCircleMore size={20} color="white" /> : <MessageCircleOff size={20} color="white" />}
+          </button>
           <button className="active:opacity-60 transition-opacity"><svg fill="none" height="20" viewBox="0 0 24 24" width="20"><path d={FULLSCREEN_ICON} fill="white" /></svg></button>
         </div>
       </div>
@@ -310,7 +313,7 @@ export function ProjectEditingScreen({ onBack, onExport, onNavigateVersionHistor
 
         {activeTool !== "flip" && activeTool !== "crop" && activeTool !== "speed" && !selectedCommentId && (
           <button onClick={onNavigateAi} className="absolute right-[24px] bottom-[24px] w-[56px] h-[56px] rounded-[16px] bg-white shadow-[0_4px_16px_rgba(255,255,255,0.2)] flex items-center justify-center z-20 active:scale-95 transition-transform overflow-hidden">
-             <img src={AI_SPARKLE_IMG} alt="AI Sparkle" className="w-[32px] h-[32px] object-contain" />
+             <Sparkles size={28} color="black" fill="black" />
           </button>
         )}
 

@@ -6,6 +6,7 @@ interface Props {
   onSelectCollaboration: () => void;
   onSelectProject: () => void;
   onNotifications?: () => void;
+  onNavigateToComment?: () => void;
 }
 
 const HOME_ICON = "M10 0L20 8.5V20H13V13H7V20H0V8.5L10 0Z";
@@ -225,11 +226,11 @@ export function HomeScreen({
             </button>
 
             {/* Item 2 */}
-            <button onClick={onSelectCollaboration} className="flex items-center gap-[12px] w-full bg-[#141416] rounded-[16px] p-[16px] active:scale-[0.98] transition-transform text-left">
+            <button onClick={onNavigateToComment || onSelectCollaboration} className="flex items-center gap-[12px] w-full bg-[#141416] rounded-[16px] p-[16px] active:scale-[0.98] transition-transform text-left">
               <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jamie" className="w-[44px] h-[44px] rounded-full shrink-0 object-cover" />
               <div className="flex flex-col flex-1">
                 <span className="text-white text-[15px] font-bold" style={{ fontFamily: "Inter, sans-serif" }}>Jamie Liked</span>
-                <span className="text-[#A3A3A3] text-[13px]" style={{ fontFamily: "Inter, sans-serif" }}>Design Proposal.docx</span>
+                <span className="text-[#A3A3A3] text-[13px]" style={{ fontFamily: "Inter, sans-serif" }}>Product launch.mp4</span>
               </div>
               <div className="flex flex-col items-end gap-[6px]">
                 <span className="text-[#A3A3A3] text-[12px]" style={{ fontFamily: "Inter, sans-serif" }}>5m ago</span>
@@ -238,11 +239,11 @@ export function HomeScreen({
             </button>
 
             {/* Item 3 */}
-            <button onClick={onSelectCollaboration} className="flex items-center gap-[12px] w-full bg-[#141416] rounded-[16px] p-[16px] active:scale-[0.98] transition-transform text-left">
+            <button onClick={onNavigateToComment || onSelectCollaboration} className="flex items-center gap-[12px] w-full bg-[#141416] rounded-[16px] p-[16px] active:scale-[0.98] transition-transform text-left">
               <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Taylor" className="w-[44px] h-[44px] rounded-full shrink-0 object-cover" />
               <div className="flex flex-col flex-1">
                 <span className="text-white text-[15px] font-bold" style={{ fontFamily: "Inter, sans-serif" }}>Taylor Assigned</span>
-                <span className="text-[#A3A3A3] text-[13px]" style={{ fontFamily: "Inter, sans-serif" }}>Wireframes.png</span>
+                <span className="text-[#A3A3A3] text-[13px]" style={{ fontFamily: "Inter, sans-serif" }}>Product launch.mp4</span>
               </div>
               <div className="flex flex-col items-end gap-[6px]">
                 <span className="text-[#A3A3A3] text-[12px]" style={{ fontFamily: "Inter, sans-serif" }}>10m ago</span>
