@@ -8,10 +8,10 @@ import imgPortrait from "../../assets/0228c1ba1abcca1af97143dd25085f9b13a73348.p
 import imgMain from "../../assets/d16ed43e9a26a54b90aa8c6689570826e50d93c4.png";
 
 // Collaboration avatars
-import imgSarah from "../../assets/7fabba66b3b4dcbc5062c03ace505e17670046e6.png";
-import imgAlex from "../../assets/b4b21f97534ca6e1f6b6d44331abf2c568065fa3.png";
-import imgJordan from "../../assets/e2f54ea377360597461fe5b2f652e40c6e0eb2e5.png";
-import imgTaylor from "../../assets/9c3fb3ab933ec3fcc1824cb87148aca51753330c.png";
+const imgSarah = { uri: "https://i.pravatar.cc/150?u=imgSarah" };
+const imgAlex = { uri: "https://i.pravatar.cc/150?u=imgAlex" };
+const imgJordan = { uri: "https://i.pravatar.cc/150?u=imgJordan" };
+const imgTaylor = { uri: "https://i.pravatar.cc/150?u=imgTaylor" };
 
 // AiBRoll images
 import imgBroll0 from "../../assets/377151205f4bf6fb72d05bc867fbb9fd68b8cb5b.png";
