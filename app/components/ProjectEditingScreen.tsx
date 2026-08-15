@@ -232,7 +232,6 @@ export function ProjectEditingScreen({ onBack, onExport, onNavigateVersionHistor
         <div className="flex items-center gap-[6px] w-[140px]"><span className="text-white text-[14px] font-medium tabular-nums">00:15:08</span><span className="text-[#555560] text-[14px] font-medium tabular-nums">/ 02:15:20</span></div>
         <button className="active:opacity-60 transition-opacity"><svg fill="none" height="28" viewBox="0 0 24 24" width="28"><path d={PLAY_ICON} fill="white" /></svg></button>
         <div className="flex items-center gap-[16px] w-[140px] justify-end">
-          <button onClick={onShareProject} className="w-[32px] h-[32px] rounded-full flex items-center justify-center shrink-0 active:opacity-60 transition-opacity"><svg fill="none" height="24" viewBox="0 0 24 24" width="24"><path d={SHARE_ICON} fill="white" /></svg></button>
           <button className="active:opacity-60 transition-opacity"><svg fill="none" height="20" viewBox="0 0 24 24" width="20"><path d={UNDO_ICON} fill="white" /></svg></button>
           <button className="active:opacity-60 transition-opacity"><svg fill="none" height="20" viewBox="0 0 24 24" width="20"><path d={REDO_ICON} fill="white" /></svg></button>
           <button className="active:opacity-60 transition-opacity" onClick={() => setShowComments(!showComments)}><svg fill="none" height="20" viewBox="0 0 24 24" width="20"><path d={showComments ? CHAT_ICON : CHAT_DISABLE_ICON} fill="white" /></svg></button>
@@ -338,35 +337,6 @@ export function ProjectEditingScreen({ onBack, onExport, onNavigateVersionHistor
                   <path d={CHECK_ICON} fill="#7e7e8f" />
                 </svg>
               </button>
-            </motion.div>
-          ) : showComments ? (
-            <motion.div
-              key="comments-toolbar"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              className="flex items-center justify-between px-[20px] pt-[16px] pb-[40px] relative z-30 bg-[#0d0d0f]"
-            >
-              <div className="w-full h-[48px] bg-[#1a1a21] rounded-[24px] flex items-center px-[16px] border border-[#32323a]">
-                <input 
-                  type="text" 
-                  placeholder="Reply" 
-                  className="flex-1 bg-transparent text-white outline-none placeholder-[#7e7e8f] text-[15px]" 
-                  value={replyText}
-                  onChange={e => setReplyText(e.target.value)}
-                  onKeyDown={e => {
-                     if (e.key === 'Enter') handleAddComment();
-                  }}
-                />
-                <button 
-                  onClick={handleAddComment} 
-                  className={`w-[32px] h-[32px] rounded-full flex items-center justify-center shrink-0 transition-all ml-[8px] ${replyText.trim() ? 'bg-white/20 active:opacity-60' : 'opacity-30'}`}
-                >
-                   <svg fill="none" height="16" viewBox="0 0 24 24" width="16">
-                     <path d={UPLOAD_ICON} fill="white" />
-                   </svg>
-                </button>
-              </div>
             </motion.div>
           ) : activeTool ? (
             <VideoEditorSubMenu
